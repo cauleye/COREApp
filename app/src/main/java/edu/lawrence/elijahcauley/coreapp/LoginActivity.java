@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
         setContentView(R.layout.activity_login);
-
+        //it's not consistent when we leave the application
 
     }
 }
