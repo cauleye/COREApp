@@ -5,13 +5,12 @@
     android:paddingRight="1dp"
     android:paddingTop="1dp"
     android:paddingBottom="1dp"
-    tools:context="edu.lawrence.elijahcauley.coreapp.SplashScreenActivity">
+    tools:context="edu.lawrence.elijahcauley.coreapp.SplashScreenActivity"
+    android:background="#54f13c">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/splash_view"
-        android:src="@drawable/lawrencecrest"
-        android:layout_alignParentBottom="true"
-        android:background="#41dc43" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/coreleaders" />
 </RelativeLayout>
