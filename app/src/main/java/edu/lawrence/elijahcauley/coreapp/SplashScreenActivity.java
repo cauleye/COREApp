@@ -32,9 +32,11 @@ public class SplashScreenActivity extends AppCompatActivity {
                             goToLogin();
                         }
                     },
-                    5000
+                    5000 // after 5 seconds this code will execute.
             );
         }
+
+
 
 
     public void goToLogin() {
