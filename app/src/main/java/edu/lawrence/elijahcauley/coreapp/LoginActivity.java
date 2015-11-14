@@ -12,38 +12,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //the immersive login screen is created
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
         setContentView(R.layout.activity_login);
-        //this code sets a timer on the code in run
-        //the 0 represents a variable initial delay, before run starts
-        //the 5 represents a variable delay between each iteration of run
-        //and then we specify the unit we are using
-        final ScheduledExecutorService logInScreen = Executors.newSingleThreadScheduledExecutor();
-        logInScreen.scheduleWithFixedDelay(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        }, 0, 5, TimeUnit.SECONDS);
-
-        //it's not consistent when we leave the application
-
     }
 
     //This code is directly from Gregg's RESTMail android app. I'm working on editing it for us
@@ -57,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         if (networkInfo != null && networkInfo.isConnected()) {
             new LogInTask(userName,password).execute();
         } else {
-            userMessage(getResources().getString(R.string.message_no_network));
+           userMessage("There is no connection.");
         }
     }
 
@@ -65,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         private String uri;
 
         LogInTask(String userName,String password) {
-            uri="http://"+URIHandler.hostName+"/RESTMail/api/user?user="+userName+"&password="+password;
+            uri="http://"+URIHandler.hostName+"/CORE/api/user?user="+userName+"&password="+password;
         }
 
         @Override
@@ -81,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if("0".equals(result))
-                userMessage(getResources().getString(R.string.message_login_failed));
+                userMessage("Log in failed");
             else
                 goToMain(result);
         }
@@ -92,12 +67,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goToMain(String userID) {
-        Intent intent = new Intent(this, MessagePickerActivity.class);
-        intent.putExtra(USER_ID, userID);
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        //intent.putExtra(USER_ID, userID); --->>> we will have to change this
         startActivity(intent);
     }
 }
 
 
 
-}
+

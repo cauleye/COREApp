@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/user_name"
-            android:id="@+id/textView3"
+            android:id="@+id/usernameLabel"
             android:textColor="#000000"
             android:textStyle="bold"
             android:layout_weight="3"/>
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="13"
-            android:id="@+id/editText"
+            android:id="@+id/user_name"
             android:layout_weight="3"/>
     </LinearLayout>
 
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password"
-            android:id="@+id/textView2"
+            android:id="@+id/passwordLabel"
             android:textColor="#000000"
             android:textStyle="bold"
             android:layout_weight="3"/>
@@ -56,9 +56,10 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:ems="13"
-            android:id="@+id/editText2"
-            android:layout_weight="3"/>
+            android:id="@+id/password"
+            android:layout_weight="3" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,9 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_in"
-            android:id="@+id/signInButton"
+            android:id="@+id/sign_in"
             android:layout_marginLeft="50dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:onClick="logIn" />
 
         <Button
             android:layout_width="wrap_content"
