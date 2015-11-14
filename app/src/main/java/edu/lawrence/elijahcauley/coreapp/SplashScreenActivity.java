@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -23,21 +19,28 @@ public class SplashScreenActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
         setContentView(R.layout.activity_splash_screen);
-        //this code sets a timer on the code in run
-        //the 0 represents a variable initial delay, before run starts
-        //the 5 represents a variable delay between each iteration of run
-        //and then we specify the unit we are using
-        final ScheduledExecutorService logInScreen = Executors.newSingleThreadScheduledExecutor();
-        logInScreen.scheduleWithFixedDelay(new Runnable() {
-            @Override
-            public void run() {
-                goToLogin();
-            }
-        }, 5, 0, TimeUnit.SECONDS);
+        delayLoginStartup();
     }
+
+
+
+        public void delayLoginStartup() {
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            goToLogin();
+                        }
+                    },
+                    5000
+            );
+        }
+
 
     public void goToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+
 }

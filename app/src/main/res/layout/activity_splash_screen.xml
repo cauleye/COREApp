@@ -13,6 +13,5 @@
         android:id="@+id/splash_view"
         android:src="@drawable/lawrencecrest"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="#41dc43" />
 </RelativeLayout>
