@@ -42,7 +42,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="239dp">
+        android:layout_height="76dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,6 +59,26 @@
             android:ems="13"
             android:id="@+id/editText2"
             android:layout_weight="3"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="66dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in"
+            android:id="@+id/signInButton"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="20dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_account"
+            android:id="@+id/createAccountButton" />
     </LinearLayout>
 
 </LinearLayout>

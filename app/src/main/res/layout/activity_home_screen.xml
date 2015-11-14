@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="edu.lawrence.elijahcauley.coreapp.HomeScreenActivity"
+   android:background="@drawable/background"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:background="#9dc9a2"
+        android:layout_weight="0.06">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="49dp"
+            android:layout_height="match_parent"
+            android:id="@+id/backButton"
+            android:background="@drawable/back" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/inboxButton"
+            android:background="@drawable/inbox"
+            android:layout_marginLeft="180dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/announcementsButton"
+            android:background="@drawable/announcements"
+            android:layout_marginLeft="10dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="90dp"
+        android:id="@+id/connectionsButton"
+        android:background="@drawable/connections"
+        android:layout_weight="0.13" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="78dp"
+        android:id="@+id/orientationButton"
+        android:background="@drawable/orientation"
+        android:layout_weight="0.13" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="74dp"
+        android:id="@+id/resourcesButton"
+        android:background="@drawable/resources" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="86dp"
+        android:id="@+id/expectationsButton"
+        android:background="@drawable/expectations" />
+</LinearLayout>
