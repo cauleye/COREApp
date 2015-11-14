@@ -71,6 +71,13 @@ public class LoginActivity extends AppCompatActivity {
         //intent.putExtra(USER_ID, userID); --->>> we will have to change this
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
 
 
