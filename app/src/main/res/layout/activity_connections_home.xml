@@ -10,6 +10,40 @@
     android:background="#c6f3c1"
     android:weightSum="1">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:weightSum="1">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="41dp"
+            android:layout_height="match_parent"
+            android:id="@+id/backButton"
+            android:background="@drawable/back"
+            android:clickable="true"
+            android:layout_weight="0.01"
+            android:layout_gravity="left" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="41dp"
+            android:layout_height="match_parent"
+            android:id="@+id/caldendarButton"
+            android:background="@drawable/calendar"
+            android:layout_marginLeft="100dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="46dp"
+            android:layout_height="match_parent"
+            android:id="@+id/searchButton"
+            android:background="@drawable/search"
+            android:layout_marginLeft="110dp" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="347dp"
         android:layout_height="62dp"
@@ -19,29 +53,34 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="69dp">
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:touchscreenBlocksFocus="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/discussion_topics"
+            android:id="@+id/discussionTopicLabel"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:layout_marginLeft="60dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="59dp"
-            android:layout_height="45dp"
-            android:id="@+id/backButton"
-            android:background="@drawable/back"
-            android:clickable="true" />
-
+            android:layout_width="27dp"
+            android:layout_height="match_parent"
+            android:id="@+id/addTopicLabel"
+            android:background="@drawable/add_discussion"
+            android:layout_marginLeft="60dp" />
     </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="0.38"></TableLayout>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="415dp"
-        android:id="@+id/listView"
+        android:id="@+id/discussionTopics"
         android:background="#c0e6e6"
         android:choiceMode="singleChoice"
         android:clickable="true"
@@ -52,4 +91,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"></LinearLayout>
+
 </LinearLayout>

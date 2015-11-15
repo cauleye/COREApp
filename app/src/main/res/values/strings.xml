@@ -9,4 +9,5 @@
     <string name="title_activity_connections_home">ConnectionsHomeActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="discussion_topics">Discussion Topics</string>
 </resources>
