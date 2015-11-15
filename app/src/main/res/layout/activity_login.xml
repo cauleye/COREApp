@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="261dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView2"
+        android:id="@+id/core_leaders"
         android:background="@drawable/coreleaders"
-        android:layout_weight="0.76" />
+        android:layout_weight="0.76"
+        android:singleLine="false" />
 
     <LinearLayout
         android:orientation="vertical"
