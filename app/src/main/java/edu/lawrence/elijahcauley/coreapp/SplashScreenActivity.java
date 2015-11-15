@@ -3,7 +3,11 @@ package edu.lawrence.elijahcauley.coreapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -25,15 +29,14 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 
         public void delayLoginStartup() {
-            new java.util.Timer().schedule(
-                    new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            goToLogin();
-                        }
-                    },
-                    5000 // after 5 seconds this code will execute.
-            );
+                ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);
+                exec.schedule(new Runnable() {
+                    public void run() {
+                        goToLogin();
+                    }
+                }, 5, TimeUnit.SECONDS);
+            exec.shutdown();
+            Log.d("COREApp", "SHUTDOWN COMPLETE");
         }
 
 
