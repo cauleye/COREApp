@@ -6,11 +6,11 @@
     android:paddingTop="1dp"
     android:paddingBottom="1dp"
     tools:context="edu.lawrence.elijahcauley.coreapp.SplashScreenActivity"
-    android:background="#54f13c">
+    android:background="#a4f49f">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:src="@drawable/coreleaders" />
+        android:id="@+id/lawrence_crest"
+        android:src="@drawable/lawrencecrest" />
 </RelativeLayout>

@@ -1,88 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#a0ee97"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.LoginActivity"
-    android:weightSum="1"
-    android:background="#acd2f9">
+    android:weightSum="1">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/lawrencecrest"
-        android:id="@+id/imageView"
-        android:layout_weight="1"/>
-
+        android:layout_height="261dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView2"
+        android:background="@drawable/coreleaders"
+        android:layout_weight="0.76" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="215dp"
+        android:layout_weight="0.23">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_name"
-            android:id="@+id/usernameLabel"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_weight="3"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Username"
+            android:id="@+id/user_name_label"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:autoText="true"
+            android:typeface="sans"
+            android:textColor="#000000" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="288dp"
             android:layout_height="wrap_content"
-            android:ems="13"
             android:id="@+id/user_name"
-            android:layout_weight="3"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="76dp">
+            android:layout_marginLeft="20dp"
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:id="@+id/passwordLabel"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Password"
+            android:id="@+id/password_label"
             android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_weight="3"/>
+            android:typeface="sans"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:ems="13"
+            android:ems="10"
             android:id="@+id/password"
-            android:layout_weight="3" />
+            android:layout_marginLeft="20dp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="66dp">
+        android:layout_height="wrap_content"
+        android:weightSum="1">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_in"
-            android:id="@+id/sign_in"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="20dp"
-            android:onClick="logIn"
-            android:clickable="true" />
+            android:text="LOG IN"
+            android:id="@+id/log_in"
+            android:layout_weight="1.00"
+            android:clickable="true"
+            android:onClick="logIn" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_account"
-            android:id="@+id/createAccountButton"
+            android:text="CREATE A NEW ACCOUNT"
+            android:id="@+id/create_a_new_account"
             android:clickable="true" />
     </LinearLayout>
-
 </LinearLayout>
