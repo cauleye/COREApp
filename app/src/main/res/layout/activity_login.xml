@@ -1,88 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.LoginActivity"
-    android:weightSum="1"
-    android:background="#acd2f9">
+    android:background="#a4f49f">
 
-    <ImageView
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/lawrencecrest"
-        android:id="@+id/imageView"
-        android:layout_weight="1"/>
+        android:text="@string/sign_in"
+        android:id="@+id/sign_in"
+        android:onClick="logIn"
+        android:clickable="true"
+        android:layout_weight="0.59"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/createAccountButton"
+        android:layout_toStartOf="@+id/createAccountButton"
+        android:layout_marginRight="42dp"
+        android:layout_marginEnd="42dp" />
 
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:text="@string/user_name"
+        android:id="@+id/usernameLabel"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_weight="3"
+        android:linksClickable="true"
+        android:layout_alignBaseline="@+id/user_name"
+        android:layout_alignBottom="@+id/user_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/user_name"
-            android:id="@+id/usernameLabel"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_weight="3"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_account"
+        android:id="@+id/createAccountButton"
+        android:clickable="true"
+        android:layout_below="@+id/password"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="13"
-            android:id="@+id/user_name"
-            android:layout_weight="3"/>
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:id="@+id/passwordLabel"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_weight="3"
+        android:linksClickable="false"
+        android:layout_below="@+id/user_name"
+        android:layout_toLeftOf="@+id/password"
+        android:layout_toStartOf="@+id/password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="13"
+        android:id="@+id/password"
+        android:layout_weight="3"
+        android:layout_above="@+id/sign_in"
+        android:layout_alignLeft="@+id/user_name"
+        android:layout_alignStart="@+id/user_name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:background="@drawable/coreleaders"
+        android:layout_above="@+id/user_name"
+        android:layout_toEndOf="@+id/sign_in"
+        android:layout_marginBottom="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="76dp">
+        android:layout_height="match_parent"></LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:id="@+id/passwordLabel"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_weight="3"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:id="@+id/user_name"
+        android:layout_weight="3"
+        android:layout_above="@+id/password"
+        android:layout_toRightOf="@+id/usernameLabel"
+        android:layout_toEndOf="@+id/usernameLabel" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="13"
-            android:id="@+id/password"
-            android:layout_weight="3" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="66dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_in"
-            android:id="@+id/sign_in"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="20dp"
-            android:onClick="logIn"
-            android:clickable="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/create_account"
-            android:id="@+id/createAccountButton"
-            android:clickable="true" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

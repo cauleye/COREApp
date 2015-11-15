@@ -28,13 +28,13 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 
 
-        public void delayLoginStartup() {
+       public void delayLoginStartup() {
                 ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);
                 exec.schedule(new Runnable() {
                     public void run() {
                         goToLogin();
                     }
-                }, 5, TimeUnit.SECONDS);
+                }, 3, TimeUnit.SECONDS);
             exec.shutdown();
             Log.d("COREApp", "SHUTDOWN COMPLETE");
         }
