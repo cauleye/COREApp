@@ -90,6 +90,15 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"></LinearLayout>
+        android:layout_gravity="right">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="95dp"
+            android:layout_height="30dp"
+            android:text="@string/topic_select"
+            android:id="@+id/button2"
+            android:layout_marginLeft="120dp" />
+    </LinearLayout>
 
 </LinearLayout>

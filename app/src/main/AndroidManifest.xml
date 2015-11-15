@@ -24,6 +24,12 @@
         </activity>
         <activity android:name=".ConnectionsHomeActivity" >
         </activity>
+        <activity android:name=".ConnectionsDiscussionSelectActivity" >
+        </activity>
+        <activity android:name=".ConnectionsDiscussionViewActivity" >
+        </activity>
+        <activity android:name=".OrientationHomeScreenActivity" >
+        </activity>
     </application>
 
 </manifest>
