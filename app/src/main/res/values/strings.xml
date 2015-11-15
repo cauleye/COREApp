@@ -5,4 +5,8 @@
     <string name="password">Password:</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
+
+    <string name="title_activity_connections_home">ConnectionsHomeActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

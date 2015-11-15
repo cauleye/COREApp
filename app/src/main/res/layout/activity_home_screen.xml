@@ -49,14 +49,14 @@
         android:layout_height="90dp"
         android:id="@+id/connectionsButton"
         android:background="@drawable/connections"
-        android:layout_weight="0.13" />
+        android:layout_weight="0.03" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="78dp"
         android:id="@+id/orientationButton"
         android:background="@drawable/orientation"
-        android:layout_weight="0.13" />
+        android:layout_weight="0.03" />
 
     <Button
         android:layout_width="350dp"
