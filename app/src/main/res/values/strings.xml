@@ -19,4 +19,7 @@
     <string name="back_button_label">BACK</string>
     <string name="inbox_button_label">INBOX</string>
     <string name="announcements_button_label">ANNOUNCEMENTS</string>
+    <string name="calendar_button_label">CALENDAR</string>
+    <string name="search_button_label">SREARCH</string>
+    <string name="add_label">ADD</string>
 </resources>

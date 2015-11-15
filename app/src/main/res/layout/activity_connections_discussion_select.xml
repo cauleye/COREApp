@@ -14,9 +14,11 @@
         android:layout_width="37dp"
         android:layout_height="37dp"
         android:id="@+id/button"
-        android:background="@drawable/back"
+        android:background="#215368"
         android:clickable="true"
-        android:layout_gravity="left" />
+        android:layout_gravity="left"
+        android:text="@string/back_button_label"
+        android:textColor="#e6fcfe" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -14,33 +14,39 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="27dp"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:paddingBottom="10dp">
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="41dp"
+            android:layout_width="49dp"
             android:layout_height="match_parent"
             android:id="@+id/backButton"
-            android:background="@drawable/back"
-            android:clickable="true"
-            android:layout_weight="0.01"
-            android:layout_gravity="left" />
+            android:background="#215368"
+            android:text="@string/back_button_label"
+            android:textColor="#e6fcfe" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="41dp"
             android:layout_height="match_parent"
             android:id="@+id/caldendarButton"
-            android:background="@drawable/calendar"
-            android:layout_marginLeft="100dp" />
+            android:background="#215368"
+            android:layout_marginLeft="100dp"
+            android:textColor="#e6fcfe"
+            android:text="@string/calendar_button_label"
+            android:textSize="8dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="46dp"
             android:layout_height="match_parent"
             android:id="@+id/searchButton"
-            android:background="@drawable/search"
-            android:layout_marginLeft="110dp" />
+            android:background="#215368"
+            android:layout_marginLeft="110dp"
+            android:textColor="#e6fcfe"
+            android:text="@string/search_button_label"
+            android:textSize="10dp" />
 
     </LinearLayout>
 
@@ -48,8 +54,11 @@
         android:layout_width="347dp"
         android:layout_height="62dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/connections"
-        android:layout_weight="0.33" />
+        android:background="#8fd4f3"
+        android:layout_weight="0.33"
+        android:text="@string/connections_label"
+        android:textColor="#000000"
+        android:textSize="50dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -73,8 +82,11 @@
             android:layout_width="27dp"
             android:layout_height="match_parent"
             android:id="@+id/addTopicLabel"
-            android:background="@drawable/add_discussion"
-            android:layout_marginLeft="60dp" />
+            android:background="#215368"
+            android:layout_marginLeft="60dp"
+            android:textColor="#e6fcfe"
+            android:text="@string/add_label"
+            android:textSize="10dp" />
     </LinearLayout>
 
     <ListView

@@ -62,7 +62,8 @@
         android:textSize="45dp"
         android:background="#8fd4f3"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="350dp"
@@ -75,7 +76,8 @@
         android:text="@string/orientation_label"
         android:textSize="50dp"
         android:background="#8fd4f3"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="350dp"
@@ -86,7 +88,8 @@
         android:onClick="goToResources"
         android:text="@string/resources_label"
         android:textSize="50dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="350dp"
@@ -96,5 +99,6 @@
         android:clickable="true"
         android:onClick="goToExpectations"
         android:text="@string/expectations_string"
-        android:textSize="45dp" />
+        android:textSize="45dp"
+        android:textStyle="bold" />
 </LinearLayout>
