@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class OrientationHomeScreenActivity extends AppCompatActivity {
 
+    //Add code here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
