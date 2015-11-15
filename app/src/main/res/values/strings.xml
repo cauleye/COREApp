@@ -12,4 +12,11 @@
     <string name="discussion_topics">Discussion Topics</string>
     <string name="discussions">Discussions</string>
     <string name="select">Select</string>
+    <string name="connections_label">CONNECTIONS</string>
+    <string name="orientation_label">ORIENTATION</string>
+    <string name="resources_label">RESOURCES</string>
+    <string name="expectations_string">EXPECTATIONS</string>
+    <string name="back_button_label">BACK</string>
+    <string name="inbox_button_label">INBOX</string>
+    <string name="announcements_button_label">ANNOUNCEMENTS</string>
 </resources>

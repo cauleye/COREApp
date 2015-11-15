@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="edu.lawrence.elijahcauley.coreapp.HomeScreenActivity"
-   android:background="@drawable/background"
+   android:background="#a1e183"
     android:weightSum="1">
 
     <LinearLayout
@@ -24,23 +24,29 @@
             android:layout_width="49dp"
             android:layout_height="match_parent"
             android:id="@+id/backButton"
-            android:background="@drawable/back" />
+            android:background="#215368"
+            android:text="@string/back_button_label"
+            android:textColor="#e6fcfe" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:id="@+id/inboxButton"
-            android:background="@drawable/inbox"
-            android:layout_marginLeft="180dp" />
+            android:background="#215368"
+            android:layout_marginLeft="180dp"
+            android:textColor="#e6fcfe"
+            android:text="@string/inbox_button_label" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:id="@+id/announcementsButton"
-            android:background="@drawable/announcements"
-            android:layout_marginLeft="10dp" />
+            android:background="#215368"
+            android:layout_marginLeft="10dp"
+            android:textColor="#e6fcfe"
+            android:text="@string/announcements_button_label" />
 
     </LinearLayout>
 
@@ -48,33 +54,47 @@
         android:layout_width="350dp"
         android:layout_height="90dp"
         android:id="@+id/connectionsButton"
-        android:background="@drawable/connections"
         android:layout_weight="0.03"
         android:clickable="true"
-        android:onClick="goToConnectionsSelect" />
+        android:onClick="goToConnectionsSelect"
+        android:allowUndo="true"
+        android:text="@string/connections_label"
+        android:textSize="45dp"
+        android:background="#8fd4f3"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="78dp"
         android:id="@+id/orientationButton"
-        android:background="@drawable/orientation"
         android:layout_weight="0.03"
         android:clickable="true"
-        android:onClick="goToOrientation" />
+        android:onClick="goToOrientation"
+        android:allowUndo="true"
+        android:text="@string/orientation_label"
+        android:textSize="50dp"
+        android:background="#8fd4f3"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="74dp"
         android:id="@+id/resourcesButton"
-        android:background="@drawable/resources"
+        android:background="#8fd4f3"
         android:clickable="true"
-        android:onClick="goToResources" />
+        android:onClick="goToResources"
+        android:text="@string/resources_label"
+        android:textSize="50dp"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="86dp"
         android:id="@+id/expectationsButton"
-        android:background="@drawable/expectations"
+        android:background="#8fd4f3"
         android:clickable="true"
-        android:onClick="goToExpectations" />
+        android:onClick="goToExpectations"
+        android:text="@string/expectations_string"
+        android:textSize="45dp" />
 </LinearLayout>
