@@ -49,24 +49,32 @@
         android:layout_height="90dp"
         android:id="@+id/connectionsButton"
         android:background="@drawable/connections"
-        android:layout_weight="0.03" />
+        android:layout_weight="0.03"
+        android:clickable="true"
+        android:onClick="goToConnectionsSelect" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="78dp"
         android:id="@+id/orientationButton"
         android:background="@drawable/orientation"
-        android:layout_weight="0.03" />
+        android:layout_weight="0.03"
+        android:clickable="true"
+        android:onClick="goToOrientation" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="74dp"
         android:id="@+id/resourcesButton"
-        android:background="@drawable/resources" />
+        android:background="@drawable/resources"
+        android:clickable="true"
+        android:onClick="goToResources" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="86dp"
         android:id="@+id/expectationsButton"
-        android:background="@drawable/expectations" />
+        android:background="@drawable/expectations"
+        android:clickable="true"
+        android:onClick="goToExpectations" />
 </LinearLayout>

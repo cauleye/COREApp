@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordText = (EditText) findViewById(R.id.password);
         String password = passwordText.getText().toString();
         Log.d("COREApp", password + "  " + userName);
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+       ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             new LogInTask(userName,password).execute();
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         private String uri;
 
         LogInTask(String userName,String password) {
-            uri="http://"+URIHandler.hostName+"/CORE/api/user?user="+userName+"&password="+password;
+            uri="http://"+URIHandler.hostName+"/CORE/api/user?username="+userName+"&password="+password;
         }
 
         @Override
