@@ -56,7 +56,7 @@
         android:id="@+id/connectionsButton"
         android:layout_weight="0.03"
         android:clickable="true"
-        android:onClick="goToConnectionsSelect"
+        android:onClick="goToConnectionsHome"
         android:allowUndo="true"
         android:text="@string/connections_label"
         android:textSize="45dp"
