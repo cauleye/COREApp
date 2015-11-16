@@ -7,7 +7,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.coreapp.OrientationHomeScreenActivity"
-    android:background="#c8fc98"
+    android:background="#a1e183"
     android:weightSum="1">
 
     <LinearLayout
