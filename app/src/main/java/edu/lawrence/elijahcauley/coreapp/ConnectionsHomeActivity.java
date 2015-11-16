@@ -15,10 +15,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ConnectionsHomeActivity extends AppCompatActivity {
     private JSONArray handles = null;
     private int selected_handle = -1;
+    private HashMap<String, Integer> categoryId;
+    private String[] handleStrs;
 
 
     @Override
@@ -71,7 +74,8 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
     private void loadHandles(String json) {
         Log.d("COREREST","Got JSON: "+json);
         handles = null;
-        String[] handleStrs = null;
+        handleStrs = null; ///-->>> making handleStrs a member variable could possibly be an issue
+        categoryId = new HashMap<String, Integer>();
 
         ListView handlesList = (ListView) findViewById(R.id.discussionTopicsList);
         try {
@@ -80,6 +84,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
             for(int n = 0;n < handleStrs.length;n++) {
                 JSONObject handle = handles.getJSONObject(n);
                 handleStrs[n] = handle.getString("categoryname");
+                categoryId.put(handle.getString("categoryname"), handle.getInt("idcategory"));
             }
         } catch (JSONException ex) {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
@@ -99,8 +104,18 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
                                     View view, int i, long l) {
                 // remember the selection
                 selected_handle = i;
+                goToSelectedCategory();
             }
         });
+    }
+
+    public void goToSelectedCategory() {
+        String selected = handleStrs[selected_handle];
+        Integer id = categoryId.get(selected);
+        String id_string = String.valueOf(id);
+        Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
+        intent.putExtra(ConnectionsDiscussionSelectActivity.categoryIdForDiscussion, id_string);
+        startActivity(intent);
     }
 
 
