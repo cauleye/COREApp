@@ -44,7 +44,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
 
         ListViewTask() {
             Log.d("COREApp", "buling the ListViewTask");
-            uri = "http://" + URIHandler.hostName + "/CORE/api/category/";
+            uri = "http://" + URIHandler.hostName + "/CORE/api/category";
             //this.toGet = toGet;
         }
 
@@ -79,7 +79,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
             handleStrs = new String[handles.length()];
             for(int n = 0;n < handleStrs.length;n++) {
                 JSONObject handle = handles.getJSONObject(n);
-                handleStrs[n] = handle.getString("category");
+                handleStrs[n] = handle.getString("categoryname");
             }
         } catch (JSONException ex) {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
