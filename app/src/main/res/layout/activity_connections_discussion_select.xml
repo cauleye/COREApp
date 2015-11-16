@@ -27,7 +27,7 @@
         android:layout_gravity="center_horizontal"
         android:background="#c4e9f5"
         android:choiceMode="singleChoice"
-        android:listSelector="#ffec41"
+        android:listSelector="#ffe207"
         android:layout_weight="1" />
 
     <Button

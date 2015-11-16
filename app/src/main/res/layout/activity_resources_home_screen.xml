@@ -25,7 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="442dp"
         android:id="@+id/weeklySyllabusListView"
-        android:layout_weight="0.38" />
+        android:layout_weight="0.38"
+        android:longClickable="false"
+        android:listSelector="#ffe207" />
 
     <Button
         android:layout_width="match_parent"
