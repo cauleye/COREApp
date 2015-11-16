@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="#a1e183"
     android:weightSum="1"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsHomeActivity">
 
 
     <TextView
@@ -18,7 +20,7 @@
     <EditText
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/new_category_name"
         android:layout_marginLeft="10dp" />
 
     <Button

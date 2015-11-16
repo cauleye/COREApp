@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -41,6 +42,13 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
                                                dialog.setTitle("Create a New Category");
                                                dialog.setContentView(R.layout.dialog_new_category);
                                                dialog.show();
+                                               Button addInputCatergory = (Button) findViewById(R.id.submit_category);
+                                               addInputCatergory.setOnClickListener(new View.OnClickListener() {
+                                                   @Override
+                                                   public void onClick(View v) {
+                                                       addCategory();
+                                                   }
+                                               });
                                            }
                                        }
         );
@@ -132,6 +140,38 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
         intent.putExtra(categoryIdString, id_string);
         startActivity(intent);
+    }
+
+    public void addCategory() {
+        EditText inputText = (EditText) findViewById(R.id.new_category_name);
+        String inputTextString = inputText.getText().toString();
+        java.util.Date date = new java.util.Date();
+        String addCategoryJSON = "[{'categoryname':" + inputTextString + ", 'date':" + date + "}]";
+        new PostNewCategory(addCategoryJSON).execute();
+    }
+
+    private class PostNewCategory extends AsyncTask<String, Void, String> {
+        private String uri;
+        private String json;
+        PostNewCategory(String json) {
+            uri = "http://" + URIHandler.hostName + "/CORE/api/category";
+            this.json = json;
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                return URIHandler.doPost(uri, json);
+            } catch (IOException e) {
+                return "";
+            }
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            new ListViewTask().execute();
+        }
     }
 
 
