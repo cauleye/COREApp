@@ -24,6 +24,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
     private int selected_handle = -1;
     private HashMap<String, Integer> categoryId;
     private String[] handleStrs;
+    public static String categoryIdString;
 
 
     @Override
@@ -124,10 +125,12 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
 
     public void goToSelectedCategory() {
         String selected = handleStrs[selected_handle];
+
         Integer id = categoryId.get(selected);
         String id_string = String.valueOf(id);
+        Log.d("COREApp", id_string);
         Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
-        intent.putExtra(ConnectionsDiscussionSelectActivity.categoryIdForDiscussion, id_string);
+        intent.putExtra(categoryIdString, id_string);
         startActivity(intent);
     }
 

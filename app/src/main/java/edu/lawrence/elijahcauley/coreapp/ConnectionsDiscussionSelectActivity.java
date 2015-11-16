@@ -18,10 +18,12 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
-    public static String categoryIdForDiscussion;
+    public static String categoryIdForDiscussion = "";
     private JSONArray handles = null;
+    private String[] handleStrs;
     private int selected_handle = -1;
     private HashMap<String, Integer> discussionId;
+    public static String discussionIdString;
 
 
 
@@ -30,7 +32,9 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connections_discussion_select);
         Intent intent = getIntent();
-        intent.getStringExtra(categoryIdForDiscussion);
+        categoryIdForDiscussion = intent.getStringExtra(ConnectionsHomeActivity.categoryIdString);
+        Log.d("COREAPP", categoryIdForDiscussion);
+        new ListViewTask().execute();
     }
 
     private class ListViewTask extends AsyncTask<String, Void, String> {
@@ -38,8 +42,8 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         private JSONObject toGet;
 
         ListViewTask() {
-            Log.d("COREApp", "buling the ListViewTask");
-            uri = "http://" + URIHandler.hostName + "/CORE/api/category?categoryid" + categoryIdForDiscussion;
+            Log.d("COREApp", "building the ListViewTask");
+            uri = "http://" + URIHandler.hostName + "/CORE/api/discussion?category=" + Integer.valueOf(categoryIdForDiscussion);
             //this.toGet = toGet;
         }
 
@@ -66,17 +70,17 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
     private void loadHandles(String json) {
         Log.d("COREREST","Got JSON: "+json);
         handles = null;
-        String[] handleStrs = null;
+        handleStrs = null;
         discussionId = new HashMap<String, Integer>();
 
-        ListView handlesList = (ListView) findViewById(R.id.discussionTopicsList);
+        ListView handlesList = (ListView) findViewById(R.id.discussionList);
         try {
             handles = new JSONArray(json);
             handleStrs = new String[handles.length()];
             for(int n = 0;n < handleStrs.length;n++) {
                 JSONObject handle = handles.getJSONObject(n);
-                handleStrs[n] = handle.getString("title");
-                discussionId.put(handle.getString("title"), handle.getInt("discussionid"));
+                handleStrs[n] = handle.getString("title") + " - " + handle.getString("author");
+                discussionId.put(handle.getString("title"), handle.getInt("iddiscussion"));
             }
         } catch (JSONException ex) {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
@@ -99,6 +103,18 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void goToDiscussion() {
+        String selected = handleStrs[selected_handle];
+
+        Integer id = discussionId.get(selected);
+        String id_string = String.valueOf(id);
+        Log.d("COREApp", id_string);
+        Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
+        intent.putExtra(discussionIdString, id_string);
+        startActivity(intent);
+
     }
 
     public void goToDiscussionView(View view) {
