@@ -2,25 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#b6e0a1"
+    android:background="#a1e183"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.LoginActivity"
     android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="239dp"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/core_leaders"
-        android:background="@drawable/coreleaders"
         android:singleLine="false"
-        android:layout_weight="0.38" />
+        android:text="@string/core_login_label"
+        android:textColor="#ffffff"
+        android:textSize="90dp"
+        android:textStyle="bold|italic"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="215dp"
-        android:layout_weight="0.64"
+        android:layout_height="wrap_content"
         android:weightSum="1"
         android:baselineAligned="false">
 
@@ -34,15 +37,15 @@
             android:layout_marginLeft="20dp"
             android:autoText="true"
             android:typeface="sans"
-            android:textColor="#000000" />
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
 
         <EditText
             android:layout_width="288dp"
             android:layout_height="wrap_content"
             android:id="@+id/user_name"
             android:layout_marginLeft="20dp"
-            android:textColor="#000000"
-            android:layout_weight="0.24" />
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,10 +53,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Password"
             android:id="@+id/password_label"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:typeface="sans"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp" />
+            android:layout_marginTop="25dp"
+            android:textSize="14dp" />
 
         <EditText
             android:layout_width="291dp"
@@ -63,7 +67,6 @@
             android:id="@+id/password"
             android:layout_marginLeft="20dp"
             android:allowUndo="true"
-            android:layout_weight=".24"
             android:clickable="true"
             android:autoText="true" />
 
@@ -71,27 +74,30 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom|center_horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOG IN"
             android:id="@+id/log_in"
             android:clickable="true"
             android:onClick="logIn"
-            android:layout_gravity="right"
-            android:layout_weight="0.98" />
+            android:layout_gravity="center_horizontal"
+            android:background="#7aae61" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CREATE A NEW ACCOUNT"
-            android:id="@+id/create_a_new_account"
-            android:clickable="true" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:text="CREATE A NEW ACCOUNT"
+        android:id="@+id/create_a_new_account"
+        android:clickable="true"
+        android:layout_gravity="center_horizontal"
+        android:background="#a1e183" />
 
 </LinearLayout>
