@@ -17,14 +17,4 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
 
     }
 
-    public void goToOrientation(View view) {
-
-
-    }
-
-    public void goToExpectations(View view) {
-
-
-    }
-
 }

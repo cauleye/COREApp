@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#a0ee97"
+    android:background="#ffffff"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.LoginActivity"
     android:weightSum="1">
@@ -12,7 +12,7 @@
         android:layout_height="261dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/core_leaders"
-        android:background="@drawable/coreleaders"
+        android:background="@drawable/corelogo"
         android:layout_weight="0.76"
         android:singleLine="false" />
 
@@ -20,7 +20,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="215dp"
-        android:layout_weight="0.23">
+        android:layout_weight="0.23"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +40,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/user_name"
             android:layout_marginLeft="20dp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:background="#cdefc6"
+            android:layout_weight="0.24" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,7 +61,11 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/password"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:background="#cdefc6"
+            android:allowUndo="true"
+            android:layout_weight=".24"
+            android:clickable="true" />
 
     </LinearLayout>
 
