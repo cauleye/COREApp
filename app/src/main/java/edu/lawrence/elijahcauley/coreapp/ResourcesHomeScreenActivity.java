@@ -3,6 +3,7 @@ package edu.lawrence.elijahcauley.coreapp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class ResourcesHomeScreenActivity extends AppCompatActivity {
 
@@ -14,6 +15,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
         String url = "https://moodle.lawrence.edu/course/view.php?id=6541";
         WebView view = (WebView) this.findViewById(R.id.webView);
         view.getSettings().setJavaScriptEnabled(true);
+        view.setWebViewClient(new WebViewClient());
         view.loadUrl(url);
     }
 }
