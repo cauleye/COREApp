@@ -25,7 +25,13 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     public void goToExpectations(View view) {
+        Intent intent = new Intent(this, ExpectationsHomeScreenActivity.class);
+        startActivity(intent);
 
+    }
 
+    public void goToResources(View view) {
+        Intent intent = new Intent(this, ResourcesHomeScreenActivity.class);
+        startActivity(intent);
     }
 }
