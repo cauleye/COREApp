@@ -25,6 +25,6 @@
     <string name="welcome_week_label">WELCOME WEEK</string>
     <string name="fall_and_winter_term_label"><![CDATA[FALL & WINTER]]></string>
     <string name="spring_term_label">SPRING TERM</string>
-    <string name="core_login_label">CORE</string>
+    <string name="core_login_label">C.O.R.E.</string>
     <string name="password_label">PASSWORD</string>
 </resources>
