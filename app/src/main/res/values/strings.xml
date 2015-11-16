@@ -22,4 +22,7 @@
     <string name="calendar_button_label">CALENDAR</string>
     <string name="search_button_label">SREARCH</string>
     <string name="add_label">ADD</string>
+    <string name="welcome_week_label">WELCOME WEEK</string>
+    <string name="fall_and_winter_term_label"><![CDATA[FALL & WINTER]]></string>
+    <string name="spring_term_label">SPRING TERM</string>
 </resources>
