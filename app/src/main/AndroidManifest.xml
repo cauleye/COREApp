@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,24 +12,42 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".SplashScreenActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".HomeScreenActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".HomeScreenActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".ConnectionsHomeActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".ConnectionsHomeActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".ConnectionsDiscussionSelectActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".ConnectionsDiscussionSelectActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".ConnectionsDiscussionViewActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".ConnectionsDiscussionViewActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".OrientationHomeScreenActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".OrientationHomeScreenActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".ResourcesHomeScreenActivity" >
+        </activity>
+        <activity android:name=".ExpectationsHomeScreenActivity" >
         </activity>
     </application>
 
