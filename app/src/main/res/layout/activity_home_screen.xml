@@ -22,7 +22,8 @@
             android:id="@+id/backButton"
             android:background="#215368"
             android:text="@string/back_button_label"
-            android:textColor="#e6fcfe" />
+            android:textColor="#ffffff"
+            android:textStyle="bold|italic" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -31,8 +32,9 @@
             android:id="@+id/inboxButton"
             android:background="#215368"
             android:layout_marginLeft="225dp"
-            android:textColor="#e6fcfe"
-            android:text="@string/inbox_button_label" />
+            android:textColor="#ffffff"
+            android:text="@string/inbox_button_label"
+            android:textStyle="bold|italic" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -40,10 +42,11 @@
             android:layout_height="match_parent"
             android:id="@+id/announcementsButton"
             android:background="#215368"
-            android:textColor="#e6fcfe"
+            android:textColor="#ffffff"
             android:text="@string/announcements_button_label"
             android:textSize="10dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold|italic" />
 
     </LinearLayout>
 
@@ -59,7 +62,7 @@
         android:background="#8fd4f3"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="40dp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff" />
 
@@ -75,7 +78,7 @@
         android:textSize="50dp"
         android:background="#8fd4f3"
         android:layout_marginBottom="40dp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff" />
 
@@ -89,7 +92,7 @@
         android:text="@string/resources_label"
         android:textSize="50dp"
         android:layout_marginBottom="40dp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff"
         android:layout_weight="0.07" />
@@ -103,7 +106,7 @@
         android:onClick="goToExpectations"
         android:text="@string/expectations_string"
         android:textSize="45dp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff"
         android:layout_marginBottom="30dp" />

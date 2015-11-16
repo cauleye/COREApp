@@ -16,7 +16,7 @@
         android:text="@string/connections_label"
         android:textColor="#ffffff"
         android:textSize="45dp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:id="@+id/connectionsLabel"
         android:gravity="center" />
 

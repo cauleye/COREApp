@@ -20,11 +20,6 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resources_home_screen);
 
         fillListView();
-        /*String url = "https://moodle.lawrence.edu/course/view.php?id=6541";
-        WebView view = (WebView) this.findViewById(R.id.webView);
-        view.getSettings().setJavaScriptEnabled(true);
-        view.setWebViewClient(new WebViewClient());
-        view.loadUrl(url);*/
     }
 
     public void goToSelectedWeek() {
