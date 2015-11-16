@@ -17,8 +17,8 @@
         android:textColor="#ffffff"
         android:textSize="70dp"
         android:textStyle="bold|italic"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:orientation="vertical"

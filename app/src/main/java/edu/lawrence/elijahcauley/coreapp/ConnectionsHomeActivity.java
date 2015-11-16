@@ -1,5 +1,6 @@
 package edu.lawrence.elijahcauley.coreapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -30,6 +32,17 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connections_home);
         ListViewTask listViewTask = new ListViewTask();
         listViewTask.execute();
+        Button addCategory = (Button) findViewById(R.id.addTopicLabel);
+        addCategory.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               Dialog dialog = new Dialog(ConnectionsHomeActivity.this);
+                                               dialog.setTitle("Create a New Category");
+                                               dialog.setContentView(R.layout.dialog_new_category);
+                                               dialog.show();
+                                           }
+                                       }
+        );
     }
 
     public void goToDiscussionSelect(View view) {
