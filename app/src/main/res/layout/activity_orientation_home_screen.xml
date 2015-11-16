@@ -10,27 +10,12 @@
     android:background="#a1e183"
     android:weightSum="1">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="49dp"
-            android:layout_height="match_parent"
-            android:id="@+id/backButton"
-            android:background="#215368"
-            android:text="@string/back_button_label"
-            android:textColor="#e6fcfe" />
-    </LinearLayout>
-
     <TextView
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:id="@+id/orientation"
         android:background="#8fd4f3"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:autoText="false"
         android:allowUndo="true"
         android:text="@string/orientation_label"
