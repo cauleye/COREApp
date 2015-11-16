@@ -63,7 +63,8 @@
         android:background="#8fd4f3"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="350dp"
@@ -77,7 +78,8 @@
         android:textSize="50dp"
         android:background="#8fd4f3"
         android:layout_marginBottom="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="350dp"
@@ -89,7 +91,8 @@
         android:text="@string/resources_label"
         android:textSize="50dp"
         android:layout_marginBottom="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="350dp"
@@ -100,5 +103,6 @@
         android:onClick="goToExpectations"
         android:text="@string/expectations_string"
         android:textSize="45dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
