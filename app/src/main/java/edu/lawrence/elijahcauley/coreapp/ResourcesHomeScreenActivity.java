@@ -1,19 +1,18 @@
 package edu.lawrence.elijahcauley.coreapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 public class ResourcesHomeScreenActivity extends AppCompatActivity {
     private int selected_handle = 0;
+    public static String weekNumber;
+    private String[] weekNames = new String[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +27,18 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
         view.loadUrl(url);*/
     }
 
+    public void goToSelectedWeek() {
+        String weekSelected = weekNames[selected_handle + 1];
+
+        Log.d("COREApp", weekSelected);
+        Intent intent = new Intent(this, ResourcesViewPDFActivity.class);
+        intent.putExtra(weekNumber, weekSelected);
+        startActivity(intent);
+    }
+
+
     private void fillListView(){
         ListView handlesList = (ListView) findViewById(R.id.weeklySyllabusListView);
-        String[] weekNames = new String[10];
 
         weekNames[0] = "Week 1: Campus Engagement";
         weekNames[1] = "Week 2: Identity";
