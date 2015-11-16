@@ -34,4 +34,11 @@ public class HomeScreenActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResourcesHomeScreenActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(HomeScreenActivity.this, HomeScreenActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
