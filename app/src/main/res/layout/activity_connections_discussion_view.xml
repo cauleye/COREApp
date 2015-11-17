@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/discussion_title"
-        android:layout_gravity="center_horizontal"
-        android:textSize="80dp"
+        android:layout_gravity="center"
+        android:textSize="50dp"
         android:typeface="sans"
         android:textStyle="bold" />
 
@@ -25,7 +25,7 @@
         android:text="New Text"
         android:id="@+id/discussion_author"
         android:layout_gravity="center"
-        android:textSize="20dp" />
+        android:textSize="10dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -39,6 +39,10 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/discussion_body"
-        android:textSize="50dp"
-        android:layout_gravity="center" />
+        android:textSize="20dp" />
+
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableListView" />
 </LinearLayout>

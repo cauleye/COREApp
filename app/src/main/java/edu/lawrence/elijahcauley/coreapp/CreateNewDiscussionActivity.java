@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class CreateNewDiscussionActivity extends AppCompatActivity {
     private String categoryId;
@@ -32,11 +32,26 @@ public class CreateNewDiscussionActivity extends AppCompatActivity {
         EditText title = (EditText) findViewById(R.id.discussion_title);
         String titleString = title.getText().toString();
         EditText body = (EditText) findViewById(R.id.discussion_body);
-        String bodyString = title.getText().toString();
+        String bodyString = body.getText().toString();
 
-        Log.d("COREAPPINCREATE", categoryId + "  " + username);
+        /*Calendar date = Calendar.getInstance();
+        long date_2 = date.getTimeInMillis();
+        java.util.Date date_1;
+        java.util.Date date_3 = new java.util.Date(date_2);
+       // Timestamp time = new Timestamp(date_2);
+        //String stringDate = date_2.*/
 
-        String submission = "{\"author\":" + "\"" + username + "\"" + ",\"title\":" + "\"" + titleString + "\"" + ",\"body\":" + "\"" + bodyString + "\"" + ",\"category\":" + Integer.valueOf(categoryId) + "}";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        java.util.Date date = new java.util.Date();
+        //dateFormat.format(date);
+        String hello = dateFormat.format(date);
+        //hello = hello.replace("/", "-");
+        //String[] hello_2 = hello.split(" ");
+        //String hello_3 = hello_2[0];
+
+        //Log.d("COREAPPINCREATE--------", stringDate);
+
+        String submission = "{\"author\":" + "\"" + username + "\"" + ",\"title\":" + "\"" + titleString + "\"" + ",\"body\":" + "\"" + bodyString + "\"" + ",\"category\":" + Integer.valueOf(categoryId) + ",\"date\":" + "\"" + hello + "\"" + "}";
 
         new PostNewDiscussion(submission).execute();
     }

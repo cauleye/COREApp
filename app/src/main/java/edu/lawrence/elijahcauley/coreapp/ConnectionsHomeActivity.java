@@ -252,4 +252,11 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

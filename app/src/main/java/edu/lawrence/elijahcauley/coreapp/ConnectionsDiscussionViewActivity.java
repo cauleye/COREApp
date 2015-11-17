@@ -12,13 +12,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
     //public static String categoryIdForDiscussion = "";
     private JSONArray handles = null;
     private String[] handleStrs;
     private int selected_handle = -1;
-    //private HashMap<String, Integer> discussionId;
+    private HashMap<String, Integer> commentId;
     private static String discussionIdString;
 
     @Override
@@ -37,7 +38,6 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
         ListViewTask() {
             Log.d("COREApp", "building the ListViewTask");
             uri = "http://" + URIHandler.hostName + "/CORE/api/discussion/" + Integer.valueOf(discussionIdString);
-            //this.toGet = toGet;
         }
 
         @Override
@@ -57,22 +57,42 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
         }
     }
 
+    private class CommentViewTask extends AsyncTask<String, Void, String> {
+        private String uri;
+        private JSONObject toGet;
+
+        CommentViewTask() {
+            Log.d("COREApp", "building the ListViewTask");
+            uri = "http://" + URIHandler.hostName + "/CORE/api/comment/comment?discussion=" + Integer.valueOf(discussionIdString);
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                return URIHandler.doGet(uri, "");
+            } catch (IOException e) {
+                return "";
+            }
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("COREApp", "calling loadHandles()");
+            //loadHandles(result);
+        }
+    }
+
 
 
 
     private void loadHandles(String json) {
         Log.d("COREREST","Got JSON: "+json);
-        //handles = null;
-        //handleStrs = null;
 
-        //ListView handlesList = (ListView) findViewById(R.id.discussion_list); //WE DO NOT HAVE A VIEW FOR THIS YET
         TextView title = (TextView) findViewById(R.id.discussion_title);
         TextView author = (TextView) findViewById(R.id.discussion_author);
         TextView body = (TextView) findViewById(R.id.discussion_body);
 
-        //String[] jsonArray = {};
-
-        //jsonArray[0] = json;
 
         try {
             JSONObject object = new JSONObject(json);
@@ -84,40 +104,6 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
         }
 
-       // JSONObject handle = json.getJSONObject();
-
-        //title.setText(json.getString("title"), TextView.BufferType.EDITABLE);
-
-       /* try {
-            handles = new JSONArray(json);
-            handleStrs = new String[handles.length()];
-            for(int n = 0;n < handleStrs.length;n++) {
-                JSONObject handle = handles.getJSONObject(n);
-                //handleStrs[n] = handle.getString("title") + " - " + handle.getString("author");
-
-                Log.d("Happening", "happen");
-            }
-        } catch (JSONException ex) {
-            Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
-            handleStrs = new String[0];
-        }*/
-
-       // Log.d("COREREST","Made "+handleStrs.length + " strings." );
-
-        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, handleStrs);
-        handlesList.setAdapter(adapter);
-        Log.d("COREREST", "Set adapter");
-
-        handlesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView,
-                                    View view, int i, long l) {
-                // remember the selection
-                selected_handle = i;
-
-            }
-        });*/
     }
 
 

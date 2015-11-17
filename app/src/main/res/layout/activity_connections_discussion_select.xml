@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:background="#2a7698"
         android:layout_weight="0.33"
-        android:text="Discussions"
+        android:text="DISCUSSIONS"
         android:textColor="#ffffff"
         android:textSize="45dp"
         android:textStyle="bold|italic"
