@@ -46,10 +46,10 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
                                               public void onClick(View v) {
                                                   dialogToDelete = new Dialog(ConnectionsDiscussionSelectActivity.this);
                                                   dialogToDelete.setTitle("Delete a Category");
-                                                  dialogToDelete.setContentView(R.layout.dialog_delete_category);
+                                                  dialogToDelete.setContentView(R.layout.dialog_delete_discussion);
                                                   dialogToDelete.show();
                                                   //CHANGE THE BELOW INFO
-                                                  Button deleteInputCatergory = (Button) dialogToDelete.findViewById(R.id.delete_category_selected);
+                                                  Button deleteInputCatergory = (Button) dialogToDelete.findViewById(R.id.delete_discussion_selected);
                                                   deleteInputCatergory.setOnClickListener(new View.OnClickListener() {
                                                       @Override
                                                       public void onClick(View v) {

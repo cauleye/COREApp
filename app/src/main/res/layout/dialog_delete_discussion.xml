@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete this discussion"
-            android:id="@+id/delete_dicussion_selected"
+            android:id="@+id/delete_discussion_selected"
             android:background="#59baee"
             android:clickable="true"
             android:layout_marginLeft="20dp"

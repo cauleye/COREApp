@@ -39,7 +39,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
 
     public void goToShareApp(){
         String shareURL = "http://www.lawrence.edu/students/share/share-app";
-        Intent intent = new Intent(this, ResourcesViewPDFActivity.class);
+        Intent intent = new Intent(this, ResourcesWebViewActivity.class);
         intent.putExtra(url, shareURL);
         startActivity(intent);
 
@@ -47,7 +47,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
 
     public void goToStudentOrganizations(){
         String studentOrgsUrl = "http://www.lawrence.edu/students/student_life/activities/directory";
-        Intent intent = new Intent(this, ResourcesViewPDFActivity.class);
+        Intent intent = new Intent(this, ResourcesWebViewActivity.class);
         intent.putExtra(url, studentOrgsUrl);
         startActivity(intent);
 
