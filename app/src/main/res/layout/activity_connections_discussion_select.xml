@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsDiscussionSelectActivity"
-    android:background="#a1e183"
+    android:background="#bdf4c0"
     android:weightSum="1"
     android:longClickable="true">
 
@@ -74,7 +74,7 @@
     </LinearLayout>
 
     <ListView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="400dp"
         android:id="@+id/discussion_list"
         android:background="#c0e6e6"
