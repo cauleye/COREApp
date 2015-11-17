@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class ResourcesHomeScreenActivity extends AppCompatActivity {
@@ -19,8 +20,21 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources_home_screen);
-
         fillListView();
+
+        final Button shareButton = (Button) findViewById(R.id.shareButton);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                goToShareApp();
+            }
+        });
+
+        final Button studentOrganizationsButton = (Button) findViewById(R.id.studentOrganizationsButton);
+        studentOrganizationsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                goToStudentOrganizations();
+            }
+        });
     }
 
     public void goToShareApp(){
@@ -31,7 +45,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
 
     }
 
-    public void gotToStudentOrganizations(){
+    public void goToStudentOrganizations(){
         String studentOrgsUrl = "http://www.lawrence.edu/students/student_life/activities/directory";
         Intent intent = new Intent(this, ResourcesViewPDFActivity.class);
         intent.putExtra(url, studentOrgsUrl);
