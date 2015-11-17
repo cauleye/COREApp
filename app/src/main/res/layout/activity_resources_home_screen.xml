@@ -21,6 +21,41 @@
         android:layout_gravity="center_horizontal"
         android:textAlignment="center" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="3.13"
+        android:background="#7aae61"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:text="@string/share_label"
+            android:id="@+id/shareButton"
+            android:background="#f13d61"
+            android:textColor="#ffffff"
+            android:textStyle="bold|italic"
+            android:onClick="goToShareApp()"
+            android:nestedScrollingEnabled="false"
+            android:clickable="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/student_orgs_label"
+            android:id="@+id/studentOrganizationsButton"
+            android:background="#2d90d1"
+            android:textStyle="bold|italic"
+            android:textColor="#ffffff"
+            android:clickable="true"
+            android:onClick="goToStudentOrganizations()" />
+    </LinearLayout>
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="442dp"
@@ -36,10 +71,9 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/select"
         android:id="@+id/selectButton"
-        android:layout_weight="0.70"
         android:background="#7aae61"
         android:textColor="#ffffff"
         android:clickable="true"

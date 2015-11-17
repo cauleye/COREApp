@@ -27,4 +27,6 @@
     <string name="spring_term_label">SPRING TERM</string>
     <string name="core_login_label">C.O.R.E.</string>
     <string name="password_label">PASSWORD</string>
+    <string name="share_label">SHARE</string>
+    <string name="student_orgs_label">STUDENT ORGS</string>
 </resources>

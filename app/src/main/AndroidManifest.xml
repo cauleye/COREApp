@@ -45,17 +45,23 @@
             android:name=".OrientationHomeScreenActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".ResourcesHomeScreenActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".ResourcesHomeScreenActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".ExpectationsHomeScreenActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".ExpectationsHomeScreenActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".ResourcesViewPDFActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".ResourcesViewPDFActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".CreateNewDiscussionActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".CreateNewDiscussionActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".ResourcesWebViewActivity" >
         </activity>
     </application>
 

@@ -1,28 +1,14 @@
 package edu.lawrence.elijahcauley.coreapp;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.pdf.PdfRenderer;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-
-import java.io.File;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class ResourcesViewPDFActivity extends AppCompatActivity {
-
-    private ImageView imageView;
-    private int currentPage = 0;
-    private Button next, previous;
-    private File file;
-    public static String fileWeekNumber = "";
+    private String url = "http://143.44.69.94/CORE/";
+    public static String urlWeekNumber = "";
 
 
     @Override
@@ -31,59 +17,49 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resources_view_pdf);
 
         Intent intent = getIntent();
-        fileWeekNumber = intent.getStringExtra(ResourcesHomeScreenActivity.weekNumber);
-        int week = Integer.parseInt(fileWeekNumber);
-        setUpFile(week);
+        urlWeekNumber = intent.getStringExtra(ResourcesHomeScreenActivity.weekNumber);
+        int week = Integer.parseInt(urlWeekNumber);
+        setUpURL(week);
 
-        next = (Button) findViewById(R.id.next);
-        previous = (Button) findViewById(R.id.previous);
+        WebView view = (WebView) this.findViewById(R.id.webView);
+        view.getSettings().setJavaScriptEnabled(true);
+        view.setWebViewClient(new WebViewClient());
+        view.loadUrl(url);
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPage++;
-                render();
-            }
-        });
-
-        previous.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPage--;
-                render();
-            }
-        });
     }
 
-    private void setUpFile(int week){
+
+
+    private void setUpURL(int week){
         if (week == 1){
-            file = new File("COREApp/app/src/main/assets/Week_One_Syllabus_Fall_Term.pdf");
+            url += "Week_One_Syllabus_Fall_Term.pdf";
         } else if (week == 2){
-            file = new File("COREApp/app/src/main/assets/Week_Two_Syllabus_Fall_Term.pdf");
+            url += "Week_Two_Syllabus_Fall_Term.pdf";
         } else if (week == 3){
-            file = new File("CORE/COREApp/app/src/main/assets/Week_Three_Syllabus_Fall_Term.pdf");
+            url += "Week_Three_Syllabus_Fall_Term.pdf";
         } else if (week == 4){
-            file = new File("CORE/COREApp/app/src/main/assets/Week_Four_Syllabus_Fall_term.pdf");
+            url += "Week_Four_Syllabus_Fall_Term.pdf";
         } else if (week == 5){
-            file = new File("COREApp/app/src/main/assets/Week_Five_Syllabus_Fall_Term.pdf");
+            url += "Week_Five_Syllabus_Fall_Term.pdf";
         } else if (week == 6){
-            file = new File("COREApp/app/src/main/assets/Week_Six_Syllabus_Fall_Term.pdf");
+            url += "Week_Six_Syllabus_Fall_Term.pdf";
         } else if (week == 7){
-            file = new File("COREApp/app/src/main/assets/Week_Seven_Syllabus_Fall_Term.pdf");
+            url += "Week_Seven_Syllabus_Fall_Term.pdf";
         } else if (week == 8){
-            file = new File("COREApp/app/src/main/assets/Week_Eight_Syllabus_Fall_Term.pdf");
+            url += "Week_Eight_Syllabus_Fall_Term.pdf";
         } else if (week == 9){
-            file = new File("COREApp/app/src/main/assets/Week_Nine_Syllabus_Fall_Term.pdf");
+            url += "Week_Nine_Syllabus_Fall_Term.pdf";
         } else if (week == 10){
-            file = new File("COREApp/app/src/main/assets/Week_Ten_Syllabus_Fall_Term.pdf");
+            url += "Week_Ten_Syllabus_Fall_Term.pdf";
         } else {
             System.out.print("Week number: " + week + ", is invalid.");
         }
 
     }
+    //This was an old solution to showing the pdfs. We're no longer using it
 
     //There's an issue where the api level has to be 21, ours is currently 14, if we want to have the PDF reader work
-
+    /*
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void render(){
         try{
@@ -115,5 +91,6 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-    }
+    } */
+
 }
