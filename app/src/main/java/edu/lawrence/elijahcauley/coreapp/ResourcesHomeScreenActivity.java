@@ -1,6 +1,9 @@
 package edu.lawrence.elijahcauley.coreapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +11,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class ResourcesHomeScreenActivity extends AppCompatActivity {
     private int selected_handle = 0;
@@ -29,6 +37,18 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResourcesViewPDFActivity.class);
         intent.putExtra(weekNumber, weekSelected);
         startActivity(intent);
+    }
+
+    private void copyFile(InputStream in, OutputStream out) throws IOException
+
+    {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1)
+
+        {
+            out.write(buffer, 0, read);
+        }
     }
 
 
@@ -55,7 +75,31 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
                                     View view, int i, long l) {
                 // remember the selection
                 selected_handle = i;
-                goToSelectedWeek();
+                //goToSelectedWeek();
+                AssetManager assetManager = getAssets();
+
+                InputStream in = null;
+                OutputStream out = null;
+                File file = new File(getFilesDir(), "week_one_syllabus_fall_term.pdf");//here schedule1.pdf is the pdf file name which is keep in assets folder.
+                try {
+                    in = assetManager.open("week_one_syllabus_fall_term.pdf");
+                    out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+
+                    copyFile(in, out);
+                    in.close();
+                    in = null;
+                    out.flush();
+                    out.close();
+                    out = null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse("file://” + getFilesDir() + “/schedule1.pdf"), "application/pdf");
+
+                startActivity(intent);
+
             }
         });
 

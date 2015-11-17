@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class ResourcesViewPDFActivity extends AppCompatActivity {
 
@@ -33,7 +36,11 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
         Intent intent = getIntent();
         fileWeekNumber = intent.getStringExtra(ResourcesHomeScreenActivity.weekNumber);
         int week = Integer.parseInt(fileWeekNumber);
-        setUpFile(week);
+        try {
+            setUpFile(week);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         next = (Button) findViewById(R.id.next);
         previous = (Button) findViewById(R.id.previous);
@@ -55,9 +62,34 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
         });
     }
 
-    private void setUpFile(int week){
+    private void setUpFile(int week) throws IOException {
+        /*
+        AssetManager assetManager = getAssets();
+
+        InputStream in = null;
+        OutputStream out = null;
+        File file = new File(getFilesDir(), "week_one_syllabus_fall_term.pdf");//here schedule1.pdf is the pdf file name which is keep in assets folder.
+        try {
+            in = assetManager.open("week_one_syllabus_fall_term.pdf");
+            out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+
+            copyFile(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse("file://” + getFilesDir() + “/schedule1.pdf"), "application/pdf");
+
+        startActivity(intent); */
+
         if (week == 1){
-            file = new File("COREApp/app/src/main/assets/Week_One_Syllabus_Fall_Term.pdf");
+            file = new File("COREApp/app/src/main/assets/week_one_syllabus_fall_term.pdf");
         } else if (week == 2){
             file = new File("COREApp/app/src/main/assets/Week_Two_Syllabus_Fall_Term.pdf");
         } else if (week == 3){
@@ -82,6 +114,18 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
 
     }
 
+    private void copyFile(InputStream in, OutputStream out) throws IOException
+
+    {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1)
+
+        {
+            out.write(buffer, 0, read);
+        }
+    }
+
     //There's an issue where the api level has to be 21, ours is currently 14, if we want to have the PDF reader work
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -92,7 +136,7 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
             int REQ_HEIGHT = imageView.getHeight();
 
             Bitmap bitmap = Bitmap.createBitmap(REQ_WIDTH, REQ_HEIGHT, Bitmap.Config.ARGB_4444);
-            //File file = new File("COREApp/app/src/main/assets/Week_One_Syllabus_Fall_Term.pdf"); // put in pdf src
+            //File file = new File("COREApp/app/src/main/assets/week_one_syllabus_fall_term.pdf"); // put in pdf src
             PdfRenderer renderer = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                 renderer = new PdfRenderer(ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY));
