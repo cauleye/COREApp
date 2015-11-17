@@ -5,11 +5,12 @@
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsHomeActivity"
     android:background="#a1e183"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:longClickable="true">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="62dp"
+        android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:background="#2a7698"
         android:layout_weight="0.33"
@@ -22,10 +23,24 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="341dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_gravity="right"
-        android:touchscreenBlocksFocus="false">
+        android:touchscreenBlocksFocus="false"
+        android:weightSum="1"
+        android:background="#a1e183">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="Delete"
+            android:id="@+id/delete_category"
+            android:layout_gravity="left"
+            android:textSize="10dp"
+            android:textColor="#e6fcfe"
+            android:background="#7aae61"
+            android:layout_marginLeft="45dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,51 +48,52 @@
             android:text="@string/discussion_topics"
             android:id="@+id/discussionTopicLabel"
             android:textColor="#ffffff"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:textSize="20dp"
-            android:layout_marginLeft="60dp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="20dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="27dp"
+            android:layout_width="50dp"
             android:layout_height="match_parent"
             android:id="@+id/addTopicLabel"
             android:background="#7aae61"
-            android:layout_marginLeft="60dp"
             android:textColor="#e6fcfe"
             android:text="@string/add_label"
             android:textSize="10dp"
-            android:elegantTextHeight="true" />
+            android:elegantTextHeight="true"
+            android:layout_weight="0.06"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="right" />
+
     </LinearLayout>
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="415dp"
+        android:layout_height="400dp"
         android:id="@+id/discussionTopicsList"
         android:background="#c0e6e6"
         android:choiceMode="singleChoice"
         android:clickable="true"
         android:listSelector="#ffe207"
-        android:layout_weight="0.84" />
+        android:layout_weight="0.64" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="50dp"
+        android:layout_gravity="bottom">
 
         <Button
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/select"
-            android:id="@+id/selectButton"
+            android:layout_height="match_parent"
+            android:text="Select Category"
+            android:background="#a1e183"
+            android:layout_gravity="center|bottom"
             android:clickable="true"
-            android:background="#7aae61"
-            android:gravity="center"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold|italic" />
+            android:onClick="goToSelectedCategory" />
     </LinearLayout>
 
 </LinearLayout>

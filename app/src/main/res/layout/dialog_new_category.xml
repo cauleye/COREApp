@@ -5,7 +5,7 @@
     android:background="#a1e183"
     android:weightSum="1"
     android:orientation="vertical"
-    tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsHomeActivity">
+    tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsDiscussionViewActivity">
 
 
     <TextView
@@ -28,5 +28,6 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/submit_category"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:clickable="true" />
 </LinearLayout>

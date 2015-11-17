@@ -96,7 +96,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(Uri.parse("file://” + getFilesDir() + “/schedule1.pdf"), "application/pdf");
+                intent.setDataAndType(Uri.parse("file://” + getFilesDir() + “/Week_One_Syllabus_Fall_Term.pdf"), "application/pdf");
 
                 startActivity(intent);
 

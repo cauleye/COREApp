@@ -26,6 +26,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
     private HashMap<String, Integer> categoryId;
     private String[] handleStrs;
     public static String categoryIdString;
+    public static Dialog dialog;
 
 
     @Override
@@ -38,11 +39,11 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         addCategory.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
-                                               Dialog dialog = new Dialog(ConnectionsHomeActivity.this);
+                                               dialog = new Dialog(ConnectionsHomeActivity.this);
                                                dialog.setTitle("Create a New Category");
                                                dialog.setContentView(R.layout.dialog_new_category);
                                                dialog.show();
-                                               Button addInputCatergory = (Button) findViewById(R.id.submit_category);
+                                               Button addInputCatergory = (Button) dialog.findViewById(R.id.submit_category);
                                                addInputCatergory.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
@@ -52,6 +53,26 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
                                            }
                                        }
         );
+        Button deleteCategory = (Button) findViewById(R.id.delete_category);
+        addCategory.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               dialog = new Dialog(ConnectionsHomeActivity.this);
+                                               dialog.setTitle("Delete a Category");
+                                               dialog.setContentView(R.layout.dialog_new_category);
+                                               dialog.show();
+                                               //CHANGE THE BELOW INFO
+                                               Button addInputCatergory = (Button) dialog.findViewById(R.id.delete_category);
+                                               addInputCatergory.setOnClickListener(new View.OnClickListener() {
+                                                   @Override
+                                                   public void onClick(View v) {
+                                                       //addCategory();
+                                                   }
+                                               });
+                                           }
+                                       }
+        );
+
     }
 
     public void goToDiscussionSelect(View view) {
@@ -113,7 +134,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
             handleStrs = new String[0];
         }
 
-        Log.d("COREREST","Made "+handleStrs.length + " strings." );
+        Log.d("COREREST", "Made " + handleStrs.length + " strings.");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, handleStrs);
@@ -126,12 +147,13 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
                                     View view, int i, long l) {
                 // remember the selection
                 selected_handle = i;
-                goToSelectedCategory();
+                //goToSelectedCategory();
             }
         });
+
     }
 
-    public void goToSelectedCategory() {
+    public void goToSelectedCategory(View view) {
         String selected = handleStrs[selected_handle];
 
         Integer id = categoryId.get(selected);
@@ -142,11 +164,14 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void addCategory() {
-        EditText inputText = (EditText) findViewById(R.id.new_category_name);
+        EditText inputText = (EditText) dialog.findViewById(R.id.new_category_name);
         String inputTextString = inputText.getText().toString();
+        //java.util.Date date = new java.util.Date();
         java.util.Date date = new java.util.Date();
-        String addCategoryJSON = "[{'categoryname':" + inputTextString + ", 'date':" + date + "}]";
+
+        String addCategoryJSON = "{\"categoryname\":" + inputTextString + "}";
         new PostNewCategory(addCategoryJSON).execute();
     }
 
@@ -170,9 +195,9 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
+
             new ListViewTask().execute();
         }
     }
-
 
 }

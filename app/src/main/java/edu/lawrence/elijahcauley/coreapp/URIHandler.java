@@ -72,7 +72,7 @@ public class URIHandler {
             conn.connect();
 
             is = conn.getInputStream();
-            // Read the response as an array of char
+
             Reader reader = null;
             reader = new InputStreamReader(is, "UTF-8");
             char[] buffer = new char[conn.getContentLength()];
@@ -80,6 +80,7 @@ public class URIHandler {
             // Convert the array of chars to a String and return that
             String result = new String(buffer);
             Log.d("COREApp","Received: " + result);
+            //Log.d("COREApp", conn.getErrorStream().toString());
             return result;
         } catch(Exception ex) {
             Log.d("Cafe","Exception in doPost:" + ex.toString());
