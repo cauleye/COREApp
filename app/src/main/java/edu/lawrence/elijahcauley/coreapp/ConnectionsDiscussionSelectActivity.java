@@ -76,7 +76,6 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
                                           }
         );
         new ListViewTask().execute();
-        //works
     }
 
     private void userMessage(String message) {

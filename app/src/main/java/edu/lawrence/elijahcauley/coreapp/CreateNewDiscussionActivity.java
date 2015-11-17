@@ -36,7 +36,7 @@ public class CreateNewDiscussionActivity extends AppCompatActivity {
 
         Log.d("COREAPPINCREATE", categoryId + "  " + username);
 
-        String submission = "{\"author\":" + username + ",\"title\":" + titleString + ",\"body\":" + bodyString + ",\"category\":" + Integer.valueOf(categoryId) + "}";
+        String submission = "{\"author\":" + "\"" + username + "\"" + ",\"title\":" + "\"" + titleString + "\"" + ",\"body\":" + "\"" + bodyString + "\"" + ",\"category\":" + "\"" + Integer.valueOf(categoryId) + "\"" + "}";
 
         new PostNewDiscussion(submission).execute();
     }
