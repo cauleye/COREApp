@@ -35,7 +35,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:text="Delete"
-            android:id="@+id/delete_category"
+            android:id="@+id/delete_discussion"
             android:layout_gravity="left"
             android:textSize="10dp"
             android:textColor="#e6fcfe"

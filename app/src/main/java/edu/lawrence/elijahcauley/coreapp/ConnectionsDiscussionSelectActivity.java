@@ -1,5 +1,6 @@
 package edu.lawrence.elijahcauley.coreapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +27,8 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
     private int selected_handle = -1;
     private HashMap<String, Integer> discussionId;
     public static String discussionIdString;
+    public static Dialog dialogToDelete;
+
 
 
 
@@ -36,6 +40,41 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         if (intent.getStringExtra(ConnectionsHomeActivity.categoryIdString) != null) {
             categoryIdForDiscussion = intent.getStringExtra(ConnectionsHomeActivity.categoryIdString);
         }
+        Button deleteCategory = (Button) findViewById(R.id.delete_discussion);
+        deleteCategory.setOnClickListener(new View.OnClickListener() {
+                                              @Override
+                                              public void onClick(View v) {
+                                                  dialogToDelete = new Dialog(ConnectionsDiscussionSelectActivity.this);
+                                                  dialogToDelete.setTitle("Delete a Category");
+                                                  dialogToDelete.setContentView(R.layout.dialog_delete_category);
+                                                  dialogToDelete.show();
+                                                  //CHANGE THE BELOW INFO
+                                                  Button deleteInputCatergory = (Button) dialogToDelete.findViewById(R.id.delete_category_selected);
+                                                  deleteInputCatergory.setOnClickListener(new View.OnClickListener() {
+                                                      @Override
+                                                      public void onClick(View v) {
+                                                          if (selected_handle != -1) {
+                                                              String deleteCategoryName = handleStrs[selected_handle];
+                                                              Integer CategoryId = discussionId.get(deleteCategoryName);
+                                                              new DeleteTask(String.valueOf(CategoryId)).execute();
+                                                              dialogToDelete.hide();
+                                                          }
+                                                          else {
+                                                              userMessage("Please select a category to delete");
+                                                              dialogToDelete.hide();
+                                                          }
+                                                      }
+                                                  });
+                                                  Button cancel = (Button) dialogToDelete.findViewById(R.id.cancel);
+                                                  cancel.setOnClickListener(new View.OnClickListener() {
+                                                      @Override
+                                                      public void onClick(View v) {
+                                                          dialogToDelete.hide();
+                                                      }
+                                                  });
+                                              }
+                                          }
+        );
         new ListViewTask().execute();
     }
 
@@ -144,4 +183,29 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    private class DeleteTask extends AsyncTask<String, Void, Void> {
+        private String uri;
+
+        DeleteTask(String id) {
+            uri = "http://" + URIHandler.hostName + "/CORE/api/discussion/" + id;
+        }
+
+        @Override
+        protected Void doInBackground(String... urls) {
+            try {
+                URIHandler.doDelete(uri);
+            } catch (IOException e) {
+            }
+            return null;
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(Void result) {
+            selected_handle = -1;
+            new ListViewTask().execute();
+        }
+    }
+
 }
