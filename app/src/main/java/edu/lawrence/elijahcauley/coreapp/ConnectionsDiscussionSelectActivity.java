@@ -34,8 +34,9 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connections_discussion_select);
         Intent intent = getIntent();
-        categoryIdForDiscussion = intent.getStringExtra(ConnectionsHomeActivity.categoryIdString);
-        Log.d("COREAPP", categoryIdForDiscussion);
+        if (intent.getStringExtra(ConnectionsHomeActivity.categoryIdString) != null) {
+            categoryIdForDiscussion = intent.getStringExtra(ConnectionsHomeActivity.categoryIdString);
+        }
         new ListViewTask().execute();
     }
 
@@ -127,6 +128,14 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
     public void createNewDiscussion(View view) {
         Intent intent = new Intent(this, CreateNewDiscussionActivity.class);
         intent.putExtra(ConnectionsDiscussionSelectActivity.categoryIdForDiscussion, categoryIdForDiscussion);
+        intent.putExtra(LoginActivity.usernameSystem, LoginActivity.usernameSystem);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ConnectionsHomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

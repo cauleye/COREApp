@@ -21,7 +21,7 @@ public class CreateNewDiscussionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_discussion);
         Intent intent = getIntent();
         categoryId = intent.getStringExtra(ConnectionsDiscussionSelectActivity.categoryIdForDiscussion);
-        username = intent.getStringExtra(LoginActivity.usernameSystem);
+        username = LoginActivity.usernameSystem;
     }
 
     private void userMessage(String message) {

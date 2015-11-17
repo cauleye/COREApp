@@ -50,6 +50,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
                                                    @Override
                                                    public void onClick(View v) {
                                                        addCategory();
+                                                       dialogToAdd.hide();
                                                    }
                                                });
                                            }
