@@ -1,10 +1,9 @@
 package edu.lawrence.elijahcauley.coreapp;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +24,6 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
     private int selected_handle = -1;
     private HashMap<String, Integer> discussionId;
     public static String discussionIdString;
-    public static Dialog dialogToDelete;
 
 
 
@@ -83,7 +81,7 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
             for(int n = 0;n < handleStrs.length;n++) {
                 JSONObject handle = handles.getJSONObject(n);
                 handleStrs[n] = handle.getString("title") + " - " + handle.getString("author");
-                discussionId.put(handle.getString("title"), handle.getInt("iddiscussion"));
+                discussionId.put(handle.getString("title") + " - " + handle.getString("author"), handle.getInt("iddiscussion"));
             }
         } catch (JSONException ex) {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
@@ -108,16 +106,14 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         });
     }
 
-    public void goToDiscussion() {
+    public void goToDiscussion(View view) {
         String selected = handleStrs[selected_handle];
-
         Integer id = discussionId.get(selected);
         String id_string = String.valueOf(id);
         Log.d("COREApp", id_string);
-        Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
+        Intent intent = new Intent(this, ConnectionsDiscussionViewActivity.class);
         intent.putExtra(discussionIdString, id_string);
         startActivity(intent);
-
     }
 
     /*public void goToDiscussionView(View view) {

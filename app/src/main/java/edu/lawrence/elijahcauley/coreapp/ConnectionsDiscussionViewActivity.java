@@ -5,10 +5,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +28,7 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connections_discussion_view);
         Intent intent = getIntent();
         discussionIdString = intent.getStringExtra(ConnectionsDiscussionSelectActivity.discussionIdString);
+        new ListViewTask().execute();
     }
 
     private class ListViewTask extends AsyncTask<String, Void, String> {
@@ -67,13 +66,17 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
         handles = null;
         handleStrs = null;
 
-        ListView handlesList = (ListView) findViewById(R.id.discussion_list); //WE DO NOT HAVE A VIEW FOR THIS YET
+        //ListView handlesList = (ListView) findViewById(R.id.discussion_list); //WE DO NOT HAVE A VIEW FOR THIS YET
+        EditText title = (EditText) findViewById(R.id.discussion_title);
+
         try {
             handles = new JSONArray(json);
             handleStrs = new String[handles.length()];
             for(int n = 0;n < handleStrs.length;n++) {
                 JSONObject handle = handles.getJSONObject(n);
-                handleStrs[n] = handle.getString("title") + " - " + handle.getString("author");
+                //handleStrs[n] = handle.getString("title") + " - " + handle.getString("author");
+                title.setText(handle.getString("title"), TextView.BufferType.EDITABLE);
+                Log.d("Happening", "happen");
             }
         } catch (JSONException ex) {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
@@ -82,7 +85,7 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
 
         Log.d("COREREST","Made "+handleStrs.length + " strings." );
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, handleStrs);
         handlesList.setAdapter(adapter);
         Log.d("COREREST", "Set adapter");
@@ -95,7 +98,7 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
                 selected_handle = i;
 
             }
-        });
+        });*/
     }
 
 

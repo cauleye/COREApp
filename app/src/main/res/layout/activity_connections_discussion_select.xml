@@ -96,7 +96,7 @@
             android:background="#a1e183"
             android:layout_gravity="center|bottom"
             android:clickable="true"
-            android:onClick="goToSelectedCategory" />
+            android:onClick="goToDiscussion" />
     </LinearLayout>
 
 </LinearLayout>
