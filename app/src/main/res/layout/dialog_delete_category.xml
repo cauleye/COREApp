@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#a1e183">
+    android:background="#a1e183"
+    tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsHomeActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,19 +12,24 @@
         android:text="Are you sure you want to delete this category?"
         android:id="@+id/textView"
         android:textSize="25dp"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_margin="20dp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yes, delete this category"
-            android:id="@+id/delete_category"
-            android:background="#59baee" />
+            android:text="Delete this category"
+            android:id="@+id/delete_category_selected"
+            android:background="#59baee"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -31,7 +38,9 @@
             android:id="@+id/cancel"
             android:layout_gravity="center_horizontal"
             android:background="#59baee"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:clickable="true"
+            android:layout_marginBottom="20dp" />
     </LinearLayout>
 
 </LinearLayout>

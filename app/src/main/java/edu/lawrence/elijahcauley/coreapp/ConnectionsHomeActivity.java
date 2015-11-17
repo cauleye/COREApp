@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +27,8 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
     private HashMap<String, Integer> categoryId;
     private String[] handleStrs;
     public static String categoryIdString;
-    public static Dialog dialog;
+    public static Dialog dialogToAdd;
+    public static Dialog dialogToDelete;
 
 
     @Override
@@ -39,11 +41,11 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         addCategory.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
-                                               dialog = new Dialog(ConnectionsHomeActivity.this);
-                                               dialog.setTitle("Create a New Category");
-                                               dialog.setContentView(R.layout.dialog_new_category);
-                                               dialog.show();
-                                               Button addInputCatergory = (Button) dialog.findViewById(R.id.submit_category);
+                                               dialogToAdd = new Dialog(ConnectionsHomeActivity.this);
+                                               dialogToAdd.setTitle("Create a New Category");
+                                               dialogToAdd.setContentView(R.layout.dialog_new_category);
+                                               dialogToAdd.show();
+                                               Button addInputCatergory = (Button) dialogToAdd.findViewById(R.id.submit_category);
                                                addInputCatergory.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
@@ -54,25 +56,45 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
                                        }
         );
         Button deleteCategory = (Button) findViewById(R.id.delete_category);
-        addCategory.setOnClickListener(new View.OnClickListener() {
+        deleteCategory.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
-                                               dialog = new Dialog(ConnectionsHomeActivity.this);
-                                               dialog.setTitle("Delete a Category");
-                                               dialog.setContentView(R.layout.dialog_new_category);
-                                               dialog.show();
+                                               dialogToDelete = new Dialog(ConnectionsHomeActivity.this);
+                                               dialogToDelete.setTitle("Delete a Category");
+                                               dialogToDelete.setContentView(R.layout.dialog_delete_category);
+                                               dialogToDelete.show();
                                                //CHANGE THE BELOW INFO
-                                               Button addInputCatergory = (Button) dialog.findViewById(R.id.delete_category);
-                                               addInputCatergory.setOnClickListener(new View.OnClickListener() {
+                                               Button deleteInputCatergory = (Button) dialogToDelete.findViewById(R.id.delete_category_selected);
+                                               deleteInputCatergory.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
-                                                       //addCategory();
+                                                       if (selected_handle != -1) {
+                                                           String deleteCategoryName = handleStrs[selected_handle];
+                                                           Integer CategoryId = categoryId.get(deleteCategoryName);
+                                                           new DeleteTask(String.valueOf(CategoryId)).execute();
+                                                           dialogToDelete.hide();
+                                                       }
+                                                       else {
+                                                           userMessage("Please select a category to delete");
+                                                           dialogToDelete.hide();
+                                                       }
+                                                   }
+                                               });
+                                               Button cancel = (Button) dialogToDelete.findViewById(R.id.cancel);
+                                               cancel.setOnClickListener(new View.OnClickListener() {
+                                                   @Override
+                                                   public void onClick(View v) {
+                                                       dialogToDelete.hide();
                                                    }
                                                });
                                            }
                                        }
         );
 
+    }
+
+    private void userMessage(String message) {
+        Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public void goToDiscussionSelect(View view) {
@@ -141,6 +163,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         handlesList.setAdapter(adapter);
         Log.d("COREREST", "Set adapter");
 
+
         handlesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView,
@@ -166,7 +189,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
 
 
     public void addCategory() {
-        EditText inputText = (EditText) dialog.findViewById(R.id.new_category_name);
+        EditText inputText = (EditText) dialogToAdd.findViewById(R.id.new_category_name);
         String inputTextString = inputText.getText().toString();
         //java.util.Date date = new java.util.Date();
         java.util.Date date = new java.util.Date();
@@ -196,6 +219,30 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
+            new ListViewTask().execute();
+        }
+    }
+
+    private class DeleteTask extends AsyncTask<String, Void, Void> {
+        private String uri;
+
+        DeleteTask(String id) {
+            uri = "http://" + URIHandler.hostName + "/RESTMail/api/category/" + id;
+        }
+
+        @Override
+        protected Void doInBackground(String... urls) {
+            try {
+                URIHandler.doDelete(uri);
+            } catch (IOException e) {
+            }
+            return null;
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(Void result) {
+            selected_handle = -1;
             new ListViewTask().execute();
         }
     }

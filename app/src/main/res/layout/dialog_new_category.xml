@@ -29,5 +29,6 @@
         android:text="Submit"
         android:id="@+id/submit_category"
         android:layout_marginTop="10dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="#59baee" />
 </LinearLayout>
