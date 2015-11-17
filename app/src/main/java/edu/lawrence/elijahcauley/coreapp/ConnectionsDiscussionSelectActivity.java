@@ -1,5 +1,6 @@
 package edu.lawrence.elijahcauley.coreapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
     private int selected_handle = -1;
     private HashMap<String, Integer> discussionId;
     public static String discussionIdString;
+    public static Dialog dialogToDelete;
 
 
 
@@ -73,7 +75,7 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
         handleStrs = null;
         discussionId = new HashMap<String, Integer>();
 
-        ListView handlesList = (ListView) findViewById(R.id.discussionList);
+        ListView handlesList = (ListView) findViewById(R.id.discussion_list);
         try {
             handles = new JSONArray(json);
             handleStrs = new String[handles.length()];
@@ -117,8 +119,14 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
 
     }
 
-    public void goToDiscussionView(View view) {
+    /*public void goToDiscussionView(View view) {
         Intent intent = new Intent(this, ConnectionsDiscussionViewActivity.class);
+        startActivity(intent);
+    }*/
+
+    public void createNewDiscussion(View view) {
+        Intent intent = new Intent(this, CreateNewDiscussionActivity.class);
+        intent.putExtra(ConnectionsDiscussionSelectActivity.categoryIdForDiscussion, categoryIdForDiscussion);
         startActivity(intent);
     }
 }

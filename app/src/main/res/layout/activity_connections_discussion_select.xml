@@ -4,43 +4,99 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsDiscussionSelectActivity"
-    android:background="#bdf4c0"
-    android:weightSum="1">
+    android:background="#a1e183"
+    android:weightSum="1"
+    android:longClickable="true">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:background="#2a7698"
-        android:text="@string/discussions"
+        android:layout_weight="0.33"
+        android:text="Discussions"
         android:textColor="#ffffff"
         android:textSize="45dp"
-        android:textStyle="bold"
-        android:id="@+id/textView3"
-        android:gravity="center"
-        android:singleLine="false" />
+        android:textStyle="bold|italic"
+        android:id="@+id/connectionsLabel"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:touchscreenBlocksFocus="false"
+        android:weightSum="1"
+        android:background="#a1e183">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="Delete"
+            android:id="@+id/delete_category"
+            android:layout_gravity="left"
+            android:textSize="10dp"
+            android:textColor="#e6fcfe"
+            android:background="#7aae61"
+            android:layout_marginLeft="45dp"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discussion Titles"
+            android:id="@+id/discussionTopicLabel"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="20dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/addTopicLabel"
+            android:background="#7aae61"
+            android:textColor="#e6fcfe"
+            android:text="@string/add_label"
+            android:textSize="10dp"
+            android:elegantTextHeight="true"
+            android:layout_weight="0.06"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="right"
+            android:clickable="true"
+            android:onClick="createNewDiscussion" />
+
+    </LinearLayout>
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="447dp"
-        android:id="@+id/discussionList"
-        android:layout_gravity="center_horizontal"
-        android:background="#c4e9f5"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:id="@+id/discussion_list"
+        android:background="#c0e6e6"
         android:choiceMode="singleChoice"
-        android:listSelector="#ffe207"
-        android:layout_weight="1" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select"
-        android:id="@+id/button"
         android:clickable="true"
-        android:background="#7aae61"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold|italic"
-        android:textColor="#ffffff" />
+        android:listSelector="#ffe207"
+        android:layout_weight="0.64" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Select Discussion"
+            android:background="#a1e183"
+            android:layout_gravity="center|bottom"
+            android:clickable="true"
+            android:onClick="goToSelectedCategory" />
+    </LinearLayout>
 
 </LinearLayout>

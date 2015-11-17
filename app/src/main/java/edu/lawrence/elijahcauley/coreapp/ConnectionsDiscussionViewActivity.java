@@ -67,7 +67,7 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
         handles = null;
         handleStrs = null;
 
-        ListView handlesList = (ListView) findViewById(R.id.discussionList); //WE DO NOT HAVE A VIEW FOR THIS YET
+        ListView handlesList = (ListView) findViewById(R.id.discussion_list); //WE DO NOT HAVE A VIEW FOR THIS YET
         try {
             handles = new JSONArray(json);
             handleStrs = new String[handles.length()];

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
+    public static String usernameSystem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private class LogInTask extends AsyncTask<String, Void, String> {
         private String uri;
+        private String username;
 
         LogInTask(String userName,String password) {
             uri="http://"+URIHandler.hostName+"/CORE/api/user?username="+userName+"&password="+password;
+            this.username = userName;
         }
 
         @Override
@@ -61,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 userMessage("Log in failed");
             else
                 goToMain(result);
+                usernameSystem = username;
         }
     }
 
@@ -77,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+        intent.putExtra(LoginActivity.usernameSystem, usernameSystem);
         startActivity(intent);
         finish();
     }
