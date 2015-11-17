@@ -55,6 +55,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
                                     View view, int i, long l) {
                 // remember the selection
                 selected_handle = i;
+                goToSelectedWeek();
             }
         });
 

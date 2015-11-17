@@ -27,7 +27,12 @@
         android:id="@+id/weeklySyllabusListView"
         android:layout_weight="0.38"
         android:longClickable="false"
-        android:listSelector="#ffe207" />
+        android:listSelector="#ffe207"
+        android:overScrollFooter="#5cb3db"
+        android:overScrollHeader="#5cb3db"
+        android:smoothScrollbar="false"
+        android:drawSelectorOnTop="false"
+        android:clickable="true" />
 
     <Button
         android:layout_width="match_parent"
