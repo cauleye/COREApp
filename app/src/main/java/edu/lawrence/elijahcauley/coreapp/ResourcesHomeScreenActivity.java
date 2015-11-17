@@ -23,7 +23,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
     }
 
     public void goToSelectedWeek() {
-        String weekSelected = weekNames[selected_handle + 1];
+        String weekSelected = Integer.toString(selected_handle + 1);
 
         Log.d("COREApp", weekSelected);
         Intent intent = new Intent(this, ResourcesViewPDFActivity.class);
