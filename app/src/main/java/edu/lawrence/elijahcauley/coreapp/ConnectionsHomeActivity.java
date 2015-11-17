@@ -112,7 +112,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         private JSONObject toGet;
 
         ListViewTask() {
-            Log.d("COREApp", "buling the ListViewTask");
+            Log.d("COREApp", "building the ListViewTask");
             uri = "http://" + URIHandler.hostName + "/CORE/api/category";
             //this.toGet = toGet;
         }
@@ -178,14 +178,18 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
     }
 
     public void goToSelectedCategory(View view) {
-        String selected = handleStrs[selected_handle];
-
-        Integer id = categoryId.get(selected);
-        String id_string = String.valueOf(id);
-        Log.d("COREApp", id_string);
-        Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
-        intent.putExtra(categoryIdString, id_string);
-        startActivity(intent);
+        if (selected_handle != -1) {
+            String selected = handleStrs[selected_handle];
+            Integer id = categoryId.get(selected);
+            String id_string = String.valueOf(id);
+            Log.d("COREApp", id_string);
+            Intent intent = new Intent(this, ConnectionsDiscussionSelectActivity.class);
+            intent.putExtra(categoryIdString, id_string);
+            startActivity(intent);
+        }
+        else {
+            userMessage("Please select a category.");
+        }
     }
 
 
@@ -195,7 +199,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         //java.util.Date date = new java.util.Date();
         java.util.Date date = new java.util.Date();
 
-        String addCategoryJSON = "{\"categoryname\":" + inputTextString + "}";
+        String addCategoryJSON = "{\"categoryname\":" + "\"" + inputTextString + "\"" + ", \"date\":"  + "\"" + date + "\"" + "}";
         new PostNewCategory(addCategoryJSON).execute();
     }
 
@@ -228,7 +232,7 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         private String uri;
 
         DeleteTask(String id) {
-            uri = "http://" + URIHandler.hostName + "/RESTMail/api/category/" + id;
+            uri = "http://" + URIHandler.hostName + "/CORE/api/category/" + id;
         }
 
         @Override

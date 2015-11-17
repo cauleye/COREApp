@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +37,10 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
             categoryIdForDiscussion = intent.getStringExtra(ConnectionsHomeActivity.categoryIdString);
         }
         new ListViewTask().execute();
+    }
+
+    private void userMessage(String message) {
+        Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     private class ListViewTask extends AsyncTask<String, Void, String> {
@@ -107,13 +112,18 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
     }
 
     public void goToDiscussion(View view) {
-        String selected = handleStrs[selected_handle];
-        Integer id = discussionId.get(selected);
-        String id_string = String.valueOf(id);
-        Log.d("COREApp", id_string);
-        Intent intent = new Intent(this, ConnectionsDiscussionViewActivity.class);
-        intent.putExtra(discussionIdString, id_string);
-        startActivity(intent);
+        if (selected_handle != -1) {
+            String selected = handleStrs[selected_handle];
+            Integer id = discussionId.get(selected);
+            String id_string = String.valueOf(id);
+            Log.d("COREApp", id_string);
+            Intent intent = new Intent(this, ConnectionsDiscussionViewActivity.class);
+            intent.putExtra(discussionIdString, id_string);
+            startActivity(intent);
+        }
+        else {
+            userMessage("Please select a discussion.");
+        }
     }
 
     /*public void goToDiscussionView(View view) {

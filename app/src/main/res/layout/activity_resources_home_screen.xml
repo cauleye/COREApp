@@ -24,8 +24,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_weight="3.13"
+        android:layout_height="wrap_content"
         android:background="#7aae61"
         android:gravity="center"
         android:weightSum="1">
@@ -57,8 +56,8 @@
     </LinearLayout>
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="442dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/weeklySyllabusListView"
         android:layout_weight="0.38"
         android:longClickable="false"
@@ -77,6 +76,7 @@
         android:background="#7aae61"
         android:textColor="#ffffff"
         android:clickable="true"
-        android:onClick="goToSelectedWeek()" />
+        android:onClick="goToSelectedWeek()"
+        android:layout_gravity="bottom" />
 
 </LinearLayout>

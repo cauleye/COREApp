@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -63,27 +62,47 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
 
     private void loadHandles(String json) {
         Log.d("COREREST","Got JSON: "+json);
-        handles = null;
-        handleStrs = null;
+        //handles = null;
+        //handleStrs = null;
 
         //ListView handlesList = (ListView) findViewById(R.id.discussion_list); //WE DO NOT HAVE A VIEW FOR THIS YET
-        EditText title = (EditText) findViewById(R.id.discussion_title);
+        TextView title = (TextView) findViewById(R.id.discussion_title);
+        TextView author = (TextView) findViewById(R.id.discussion_author);
+        TextView body = (TextView) findViewById(R.id.discussion_body);
+
+        //String[] jsonArray = {};
+
+        //jsonArray[0] = json;
 
         try {
+            JSONObject object = new JSONObject(json);
+            title.setText(object.getString("title"), TextView.BufferType.EDITABLE);
+            author.setText("Created by: " + object.getString("author"), TextView.BufferType.EDITABLE);
+            body.setText(object.getString("body"), TextView.BufferType.EDITABLE);
+        }
+        catch (JSONException ex) {
+            Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
+        }
+
+       // JSONObject handle = json.getJSONObject();
+
+        //title.setText(json.getString("title"), TextView.BufferType.EDITABLE);
+
+       /* try {
             handles = new JSONArray(json);
             handleStrs = new String[handles.length()];
             for(int n = 0;n < handleStrs.length;n++) {
                 JSONObject handle = handles.getJSONObject(n);
                 //handleStrs[n] = handle.getString("title") + " - " + handle.getString("author");
-                title.setText(handle.getString("title"), TextView.BufferType.EDITABLE);
+
                 Log.d("Happening", "happen");
             }
         } catch (JSONException ex) {
             Log.d("COREREST", "Exception in loadHandles: " + ex.getMessage());
             handleStrs = new String[0];
-        }
+        }*/
 
-        Log.d("COREREST","Made "+handleStrs.length + " strings." );
+       // Log.d("COREREST","Made "+handleStrs.length + " strings." );
 
         /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, handleStrs);
