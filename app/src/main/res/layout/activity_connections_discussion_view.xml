@@ -54,15 +54,22 @@
         android:textColor="#28d6ed"
         android:layout_marginTop="15dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/comments"
-        android:layout_marginTop="10dp"
-        android:scrollIndicators="start">
+        android:id="@+id/scrollView"
+        android:layout_weight="1">
 
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/comments"
+            android:layout_marginTop="10dp"
+            android:scrollIndicators="start">
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:layout_width="match_parent"
@@ -73,6 +80,7 @@
         android:layout_gravity="center|bottom"
         android:layout_marginTop="30dp"
         android:onClick="addComment"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_weight="1"/>
 
 </LinearLayout>
