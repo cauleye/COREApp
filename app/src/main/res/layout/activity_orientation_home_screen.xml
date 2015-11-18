@@ -33,7 +33,8 @@
         android:textSize="40dp"
         android:background="#ecd30d"
         android:layout_weight=".25"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:clickable="true" />
 
     <Button
         android:layout_width="match_parent"
@@ -45,7 +46,8 @@
         android:textSize="40dp"
         android:background="#de5f10"
         android:layout_weight=".25"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:clickable="true" />
 
     <Button
         android:layout_width="match_parent"
@@ -57,7 +59,8 @@
         android:textSize="40dp"
         android:background="#dd100d"
         android:layout_weight=".25"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="match_parent"
