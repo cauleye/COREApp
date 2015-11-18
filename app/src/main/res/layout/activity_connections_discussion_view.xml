@@ -7,7 +7,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="edu.lawrence.elijahcauley.coreapp.ConnectionsDiscussionViewActivity"
-    android:background="#a1e183">
+    android:background="#a1e183"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,8 +42,35 @@
         android:id="@+id/discussion_body"
         android:textSize="20dp" />
 
-    <ExpandableListView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView" />
+        android:text="COMMENTS"
+        android:id="@+id/comment_title"
+        android:textSize="15dp"
+        android:typeface="sans"
+        android:layout_gravity="center"
+        android:autoText="false"
+        android:textColor="#28d6ed"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/comments"
+        android:layout_marginTop="10dp"
+        android:scrollIndicators="start">
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add a Comment"
+        android:id="@+id/add_a_comment"
+        android:background="#28d6ed"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="30dp" />
+
 </LinearLayout>
