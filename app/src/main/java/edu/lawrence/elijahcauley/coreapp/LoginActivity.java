@@ -1,5 +1,6 @@
 package edu.lawrence.elijahcauley.coreapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,11 +20,40 @@ import java.util.HashMap;
 public class LoginActivity extends AppCompatActivity {
     public static String usernameSystem;
     public static HashMap<Integer, String> userInfo = new HashMap<Integer, String>();
+    public static Dialog dialogToAddNewUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Button addCategory = (Button) findViewById(R.id.create_a_new_account);
+        addCategory.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               dialogToAddNewUser = new Dialog(LoginActivity.this);
+                                               dialogToAddNewUser.setTitle("Create a New User");
+                                               dialogToAddNewUser.setContentView(R.layout.dialog_new_user);
+                                               dialogToAddNewUser.show();
+                                               Button addInputUser = (Button) dialogToAddNewUser.findViewById(R.id.submit_user);
+                                               addInputUser.setOnClickListener(new View.OnClickListener() {
+                                                   @Override
+                                                   public void onClick(View v) {
+
+                                                       //Add code that checks to see if both edit fields are full
+
+                                                       if (checkUserInput()){
+                                                           addUser();
+                                                           dialogToAddNewUser.hide();
+                                                       } else {
+                                                           userMessage("Please enter a Username and Password");
+                                                       }
+                                                   }
+                                               });
+                                           }
+                                       }
+        );
+
     }
 
     //This code is directly from Gregg's RESTMail android app. I'm working on editing it for us
@@ -87,6 +118,59 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra(LoginActivity.usernameSystem, usernameSystem);
         startActivity(intent);
         finish();
+    }
+
+    public boolean checkUserInput(){
+        EditText inputTextUserName = (EditText) dialogToAddNewUser.findViewById(R.id.user_name);
+        String inputTextUserNameString = inputTextUserName.getText().toString();
+
+        EditText inputTextPassword = (EditText) dialogToAddNewUser.findViewById(R.id.password);
+        String inputTextPasswordString = inputTextPassword.getText().toString();
+
+
+        if (inputTextPasswordString.isEmpty() || inputTextUserNameString.isEmpty()){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void addUser() {
+        EditText inputTextUserName = (EditText) dialogToAddNewUser.findViewById(R.id.user_name);
+        String inputTextUserNameString = inputTextUserName.getText().toString();
+
+        EditText inputTextPassword = (EditText) dialogToAddNewUser.findViewById(R.id.password);
+        String inputTextPasswordString = inputTextPassword.getText().toString();
+
+
+        String addCategoryJSON = "{\"username\":" + "\"" + inputTextUserNameString + "\"" + ", \"password\":"  + "\"" + inputTextPasswordString + "\"" + "}";
+        new PostNewCategory(addCategoryJSON).execute();
+    }
+
+    private class PostNewCategory extends AsyncTask<String, Void, String> {
+        private String uri;
+        private String json;
+        PostNewCategory(String json) {
+            uri = "http://" + URIHandler.hostName + "/CORE/api/user";
+            this.json = json;
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                return URIHandler.doPost(uri, json);
+            } catch (IOException e) {
+                return "";
+            }
+        }
+
+        /*
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            return "";
+            //new ListViewTask().execute();
+        } */
     }
 }
 

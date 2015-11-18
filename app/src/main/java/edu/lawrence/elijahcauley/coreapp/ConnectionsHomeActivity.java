@@ -103,9 +103,6 @@ public class ConnectionsHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //TODO add code that puts a new category into the database
-
-
     //This code populates the list view with the categories from the database.
     private class ListViewTask extends AsyncTask<String, Void, String> {
         private String uri;
