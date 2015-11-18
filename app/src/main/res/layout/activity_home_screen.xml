@@ -58,7 +58,7 @@
         android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff"
-        android:layout_weight="0.06" />
+        android:layout_weight=".2" />
 
     <Button
         android:layout_width="350dp"
