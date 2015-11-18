@@ -8,12 +8,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 public class CreateNewDiscussionActivity extends AppCompatActivity {
     private String categoryId;
     private String username;
+    private JSONArray handles = null;
+    private String[] handleStrs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +38,12 @@ public class CreateNewDiscussionActivity extends AppCompatActivity {
         EditText body = (EditText) findViewById(R.id.discussion_body);
         String bodyString = body.getText().toString();
 
-        /*Calendar date = Calendar.getInstance();
-        long date_2 = date.getTimeInMillis();
-        java.util.Date date_1;
-        java.util.Date date_3 = new java.util.Date(date_2);
-       // Timestamp time = new Timestamp(date_2);
-        //String stringDate = date_2.*/
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         java.util.Date date = new java.util.Date();
-        //dateFormat.format(date);
-        String hello = dateFormat.format(date);
-        //hello = hello.replace("/", "-");
-        //String[] hello_2 = hello.split(" ");
-        //String hello_3 = hello_2[0];
 
-        //Log.d("COREAPPINCREATE--------", stringDate);
+        String formatedDate = dateFormat.format(date);
 
-        String submission = "{\"author\":" + "\"" + username + "\"" + ",\"title\":" + "\"" + titleString + "\"" + ",\"body\":" + "\"" + bodyString + "\"" + ",\"category\":" + Integer.valueOf(categoryId) + ",\"date\":" + "\"" + hello + "\"" + "}";
+        String submission = "{\"author\":" + "\"" + username + "\"" + ",\"title\":" + "\"" + titleString + "\"" + ",\"body\":" + "\"" + bodyString + "\"" + ",\"category\":" + Integer.valueOf(categoryId) + ",\"date\":" + "\"" + formatedDate + "\"" + "}";
 
         new PostNewDiscussion(submission).execute();
     }

@@ -13,9 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
     public static String usernameSystem;
+    public static HashMap<Integer, String> userInfo = new HashMap<Integer, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             else
                 goToMain(result);
                 usernameSystem = username;
+                userInfo.put(Integer.valueOf(result), usernameSystem);
         }
     }
 
