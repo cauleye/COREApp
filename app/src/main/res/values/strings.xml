@@ -29,4 +29,5 @@
     <string name="password_label">PASSWORD</string>
     <string name="share_label">SHARE</string>
     <string name="student_orgs_label">STUDENT ORGS</string>
+    <string name="confirm_password_label">Confirm Password:</string>
 </resources>

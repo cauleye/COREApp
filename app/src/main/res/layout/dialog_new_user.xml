@@ -36,12 +36,31 @@
         android:layout_width="234dp"
         android:layout_height="wrap_content"
         android:id="@+id/password"
+        android:inputType="textPassword"
+        android:layout_marginLeft="10dp"
+        android:linksClickable="false"
+        android:longClickable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_password_label"
+        android:id="@+id/confirm_password_label"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp" />
+
+    <EditText
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm_password"
+        android:inputType="textPassword"
         android:layout_marginLeft="10dp"
         android:linksClickable="false"
         android:longClickable="false" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/submit_user"

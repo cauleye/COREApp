@@ -45,8 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                                                        if (checkUserInput()){
                                                            addUser();
                                                            dialogToAddNewUser.hide();
-                                                       } else {
-                                                           userMessage("Please enter a Username and Password");
                                                        }
                                                    }
                                                });
@@ -127,12 +125,24 @@ public class LoginActivity extends AppCompatActivity {
         EditText inputTextPassword = (EditText) dialogToAddNewUser.findViewById(R.id.password);
         String inputTextPasswordString = inputTextPassword.getText().toString();
 
+        EditText inputTextConfirmPassword = (EditText) dialogToAddNewUser.findViewById(R.id.confirm_password);
+        String inputTextConfirmPasswordString = inputTextConfirmPassword.getText().toString();
 
-        if (inputTextPasswordString.isEmpty() || inputTextUserNameString.isEmpty()){
-            return false;
+        if (inputTextConfirmPasswordString.equals(inputTextPasswordString)){
+            if (inputTextUserNameString.isEmpty()){
+                userMessage("Please enter a Username");
+                return false;
+            } else if (inputTextConfirmPasswordString.isEmpty() || inputTextPasswordString.isEmpty()){
+                userMessage("Please enter and confirm a Password");
+                return false;
+            } else{
+                return true;
+            }
         } else {
-            return true;
+            userMessage("Your Passwords do not match");
+            return false;
         }
+
     }
 
     public void addUser() {
