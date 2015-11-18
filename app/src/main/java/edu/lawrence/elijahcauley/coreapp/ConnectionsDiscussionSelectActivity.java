@@ -45,7 +45,7 @@ public class ConnectionsDiscussionSelectActivity extends AppCompatActivity {
                                               @Override
                                               public void onClick(View v) {
                                                   dialogToDelete = new Dialog(ConnectionsDiscussionSelectActivity.this);
-                                                  dialogToDelete.setTitle("Delete a Category");
+                                                  dialogToDelete.setTitle("Delete a Discussion");
                                                   dialogToDelete.setContentView(R.layout.dialog_delete_discussion);
                                                   dialogToDelete.show();
                                                   //CHANGE THE BELOW INFO

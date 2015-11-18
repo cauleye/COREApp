@@ -71,6 +71,8 @@
         android:id="@+id/add_a_comment"
         android:background="#28d6ed"
         android:layout_gravity="center|bottom"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:onClick="addComment"
+        android:clickable="true" />
 
 </LinearLayout>

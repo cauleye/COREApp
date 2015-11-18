@@ -19,6 +19,7 @@ import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
     public static String usernameSystem;
+    public static String usernameIdSystem;
     public static HashMap<Integer, String> userInfo = new HashMap<Integer, String>();
     public static Dialog dialogToAddNewUser;
 
@@ -96,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             else
                 goToMain(result);
                 usernameSystem = username;
+                usernameIdSystem = result;
                 userInfo.put(Integer.valueOf(result), usernameSystem);
         }
     }
@@ -174,13 +176,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
-        /*
+
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            return "";
-            //new ListViewTask().execute();
-        } */
+            usernameSystem = result;
+        }
     }
 }
 

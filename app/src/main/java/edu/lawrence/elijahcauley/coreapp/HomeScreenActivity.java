@@ -41,4 +41,5 @@ public class HomeScreenActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
 }
