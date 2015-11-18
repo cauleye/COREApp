@@ -7,7 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class ResourcesViewPDFActivity extends AppCompatActivity {
-    private String url = "http://143.44.69.94/CORE/";
+    private String url = "";
     public static String urlWeekNumber = "";
 
 
@@ -32,25 +32,25 @@ public class ResourcesViewPDFActivity extends AppCompatActivity {
 
     private void setUpURL(int week){
         if (week == 1){
-            url += "Week_One_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSYTNVNlhLRUI1ODA/view?usp=sharing";
         } else if (week == 2){
-            url += "Week_Two_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSRm9PLW85dFVqaFE/view?usp=sharing";
         } else if (week == 3){
-            url += "Week_Three_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSOFNnMmc4Z05ybFE/view?usp=sharing";
         } else if (week == 4){
-            url += "Week_Four_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSZ0FEdS1fR1ZqSFk/view?usp=sharing";
         } else if (week == 5){
-            url += "Week_Five_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSaFRBZGppOS1pVzg/view?usp=sharing";
         } else if (week == 6){
-            url += "Week_Six_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOScnQweGRQUU5Tc2M/view?usp=sharing";
         } else if (week == 7){
-            url += "Week_Seven_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSdFJVSWNkMUVvZEE/view?usp=sharing";
         } else if (week == 8){
-            url += "Week_Eight_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSVzJoVG1CQllsS2c/view?usp=sharing";
         } else if (week == 9){
-            url += "Week_Nine_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSeEdjUm5qeC1wMU0/view?usp=sharing";
         } else if (week == 10){
-            url += "Week_Ten_Syllabus_Fall_Term.pdf";
+            url = "https://drive.google.com/file/d/0BzM5VKncOGOSRF96Vnc2aDh3Q2c/view?usp=sharing";
         } else {
             System.out.print("Week number: " + week + ", is invalid.");
         }

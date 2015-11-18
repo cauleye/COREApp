@@ -31,8 +31,7 @@ public class ResourcesHomeScreenActivity extends AppCompatActivity {
 
         final Button studentOrganizationsButton = (Button) findViewById(R.id.studentOrganizationsButton);
         studentOrganizationsButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                goToStudentOrganizations();
+            public void onClick(View v) {goToStudentOrganizations();
             }
         });
     }

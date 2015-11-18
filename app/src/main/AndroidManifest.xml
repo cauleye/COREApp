@@ -63,6 +63,8 @@
         </activity>
         <activity android:name=".ResourcesWebViewActivity" >
         </activity>
+        <activity android:name=".OrientationWebViewActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -19,7 +19,8 @@
         android:textSize="50dp"
         android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:gravity="center" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -57,9 +58,8 @@
 
     <ListView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="438dp"
         android:id="@+id/weeklySyllabusListView"
-        android:layout_weight="0.38"
         android:longClickable="false"
         android:listSelector="#ffe207"
         android:overScrollFooter="#5cb3db"
