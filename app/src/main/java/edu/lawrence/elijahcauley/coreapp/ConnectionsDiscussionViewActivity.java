@@ -136,7 +136,7 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
         try {
             JSONObject object = new JSONObject(json);
             title.setText(object.getString("title"), TextView.BufferType.EDITABLE);
-            author.setText("Created by: " + object.getString("author"), TextView.BufferType.EDITABLE);
+            author.setText("Created by: " + object.getString("author") + " at " + object.getString("date"), TextView.BufferType.EDITABLE);
             body.setText(object.getString("body"), TextView.BufferType.EDITABLE);
         }
         catch (JSONException ex) {
