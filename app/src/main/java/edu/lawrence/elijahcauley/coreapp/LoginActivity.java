@@ -43,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                                                        //Add code that checks to see if both edit fields are full
 
                                                        if (checkUserInput()){
+
+                                                           //new CheckUserName().execute();
                                                            addUser();
                                                            dialogToAddNewUser.hide();
                                                        }
@@ -153,14 +155,14 @@ public class LoginActivity extends AppCompatActivity {
         String inputTextPasswordString = inputTextPassword.getText().toString();
 
 
-        String addCategoryJSON = "{\"username\":" + "\"" + inputTextUserNameString + "\"" + ", \"password\":"  + "\"" + inputTextPasswordString + "\"" + "}";
-        new PostNewCategory(addCategoryJSON).execute();
+        String addUserJSON = "{\"username\":" + "\"" + inputTextUserNameString + "\"" + ", \"password\":"  + "\"" + inputTextPasswordString + "\"" + "}";
+        new PostNewUser(addUserJSON).execute();
     }
 
-    private class PostNewCategory extends AsyncTask<String, Void, String> {
+    private class PostNewUser extends AsyncTask<String, Void, String> {
         private String uri;
         private String json;
-        PostNewCategory(String json) {
+        PostNewUser(String json) {
             uri = "http://" + URIHandler.hostName + "/CORE/api/user";
             this.json = json;
         }
@@ -182,6 +184,38 @@ public class LoginActivity extends AppCompatActivity {
             //new ListViewTask().execute();
         } */
     }
+    /*
+    private class CheckUserName extends AsyncTask<String, Void, String> {
+        EditText inputTextUserName = (EditText) dialogToAddNewUser.findViewById(R.id.user_name);
+        String inputTextUserNameString = inputTextUserName.getText().toString();
+        private String uri;
+        private String json;
+        CheckUserName(String json) {
+            uri = "http://" + URIHandler.hostName + "/CORE/api/user?user=" + inputTextUserNameString;
+            this.json = json;
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                return URIHandler.doGet(uri, json);
+            } catch (IOException e) {
+                return "";
+            }
+        }
+
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            if (Integer.parseInt(result) > 0){
+
+            }
+
+            //return true;
+            //new ListViewTask().execute();
+        }
+    } */
 }
 
 
