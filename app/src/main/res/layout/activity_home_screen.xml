@@ -57,13 +57,14 @@
         android:layout_marginBottom="40dp"
         android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_weight="0.06" />
 
     <Button
         android:layout_width="350dp"
         android:layout_height="78dp"
         android:id="@+id/orientationButton"
-        android:layout_weight="0.04"
+        android:layout_weight=".2"
         android:clickable="true"
         android:onClick="goToOrientation"
         android:allowUndo="true"
@@ -88,7 +89,7 @@
         android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff"
-        android:layout_weight="0.07" />
+        android:layout_weight=".2" />
 
     <Button
         android:layout_width="350dp"
@@ -102,7 +103,8 @@
         android:textStyle="bold|italic"
         android:layout_gravity="center_horizontal"
         android:textColor="#ffffff"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:layout_weight=".2" />
 
     <LinearLayout
         android:orientation="horizontal"
