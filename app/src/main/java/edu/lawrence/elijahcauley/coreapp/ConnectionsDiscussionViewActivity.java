@@ -28,10 +28,7 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
     private int selected_handle = -1;
     private HashMap<String, Integer> commentId;
     private HashMap<Integer, String> userInfo;
-    //private ArrayList<String> userNames;
-    //private ArrayList<String> comments;
     private static String discussionIdString;
-   //private HashMap<Integer, String> userInfoForDiscussion;
     private Dialog dialogToDelete;
     private Dialog dialogToAdd;
     private LinearLayout commentList;
@@ -269,8 +266,8 @@ public class ConnectionsDiscussionViewActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    //String deleteCategoryName = handleStrs[selected_handle];
-                    //Integer CategoryId = discussionId.get(deleteCategoryName);
+                    //I have to place some code here that checks to see if the comment has the user name,
+                    //as the first substring.
                     new DeleteTask(String.valueOf(idFinal)).execute();
                     commentList.removeView(viewFinal);
                     dialogToDelete.hide();
